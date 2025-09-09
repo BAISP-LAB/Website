@@ -126,6 +126,48 @@
       .people-feature .avatar{ margin:0 auto; }
       .people-feature .text{ text-align:center; }
     }
+        /* === Fix PI layout: 左圖｜右文、整塊置中 === */
+    .people-feature { 
+      display: block;                /* 不需要整個容器是 grid */
+    }
+    
+    .people-feature .person-card{
+      display: grid;                 /* 把 PI 裡的 person-card 改成左右兩欄 */
+      grid-template-columns: var(--avatar-size) 1fr;
+      gap: 2rem;
+      align-items: center;
+      justify-content: center;       /* 置中整個 block */
+      max-width: 980px;
+      margin: 0 auto;                /* 外層仍置中 */
+      text-align: left;              /* 右側文字靠左 */
+    }
+    
+    .people-feature .person-card .avatar{
+      grid-column: 1;                /* 圖片固定在左欄 */
+      grid-row: 1 / -1;              /* 垂直跨越 */
+      width: var(--avatar-size);
+      aspect-ratio: 1 / 1;
+      object-fit: cover;
+      margin: 0;                     /* 拿掉任何可能影響置中的 margin */
+    }
+    
+    /* 右側：除了圖片以外的所有內容都在第 2 欄 */
+    .people-feature .person-card > :not(.avatar){
+      grid-column: 2;
+    }
+    
+    /* 手機版回到上下堆疊 */
+    @media (max-width: 720px){
+      .people-feature .person-card{
+        display: block;
+        text-align: center;
+      }
+      .people-feature .person-card .avatar{
+        grid-column: auto;
+        grid-row: auto;
+        margin: 0 auto;
+      }
+    }
     </style>
 </head>
 <body class="homepage is-preload">
