@@ -89,6 +89,7 @@
       grid-template-columns: var(--avatar-size) 1fr; /* 左圖固定寬，右邊自適應 */
       gap: 2rem;
       align-items:center;
+      justify-content:center;
       max-width: 980px;
       margin:0 auto;
     }
@@ -101,7 +102,9 @@
       border:3px solid rgba(0,0,0,.06);
       box-shadow:0 2px 10px rgba(0,0,0,.08);
     }
-    
+    .people-feature .text{
+      text-align:left;          /* 保持文字靠左，才像正式簡介 */
+    }
     .people-feature .text h3{ 
       font-size: var(--pi-name-size); 
       margin:0 0 .35rem; 
@@ -121,6 +124,7 @@
         text-align:center; 
       }
       .people-feature .avatar{ margin:0 auto; }
+      .people-feature .text{ text-align:center; }
     }
     </style>
 </head>
