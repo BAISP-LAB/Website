@@ -8,14 +8,58 @@
 	<meta charset="utf-8" />
 	<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
 	<link rel="stylesheet" href="assets/css/main.css" />
+
+  <!-- ===== Intro section styles ===== -->
+  <style>
+    /* 標題與副標題 */
+    .intro-section .major h2{
+      text-align:center;
+      margin-bottom:.35rem;               /* 標題與副標題距離 */
+    }
+    .intro-section .subtitle{
+      text-align:center;
+      color:#666;
+      font-size:.95rem;
+      margin-bottom:1.75rem;              /* 副標題與內文距離 */
+    }
+
+    /* 內容版型：桌機雙欄、手機單欄 */
+    .intro-grid{
+      display:grid;
+      grid-template-columns: 1fr;         /* 手機：單欄 */
+      gap: 1.25rem 2rem;
+      max-width: 980px;
+      margin: 0 auto;
+    }
+    @media (min-width: 900px){
+      .intro-grid{ grid-template-columns: 1fr 1fr; } /* 桌機：雙欄 */
+    }
+
+    /* 文字排版 */
+    .intro-body{
+      font-size:1.02rem;
+      line-height:1.9;
+      color:#333;
+      text-align: justify;
+      text-justify: inter-ideograph;      /* 中文對齊更自然 */
+    }
+    .intro-body p{ margin: 0 0 1rem 0; }  /* 段落間距 */
+    .intro-body.en{ hyphens: auto; }      /* 英文自動斷詞，避免溢出 */
+
+    /* 柔和背景卡片感（可移除） */
+    .intro-card{
+      background: rgba(0,0,0,.02);
+      border: 1px solid rgba(0,0,0,.06);
+      border-radius: 14px;
+      padding: 1.25rem;
+    }
+  </style>
 </head>
 <body class="homepage is-preload">
 	<div id="page-wrapper">
 
 		<!-- Header -->
 		<div id="header-wrapper">
-			
-
 			<!-- Hero -->
 			<section id="hero" class="container">
 				<header>
@@ -24,8 +68,8 @@
 				<p>Biomedical Artificial Intelligence and Signal Processing Lab</p>
 				<p>智慧生醫與訊號處理實驗室</p>
 			</section>
-			<div id="header" class="container">
 
+			<div id="header" class="container">
 				<!-- Nav -->
 				<nav id="nav">
 					<ul>
@@ -37,93 +81,85 @@
 						<li><a href="forlab.html">For lab</a></li>
 					</ul>
 				</nav>
-
 			</div>
-
 		</div>
 
-		<!-- Introduction -->
-		<div class="wrapper">
+		<!-- ===== Introduction (new) ===== -->
+		<div class="wrapper intro-section">
 			<div class="container">
 				<header class="major">
-					<h2>實驗室簡介 (Laboratory Introduction)</h2>
-					<h3><br /></h3>
-					<p style="text-align: left;">
-						&emsp;&emsp;我們的實驗室專注於開發智慧生醫技術，特別是針對神經訊號與醫學影像的分析工具。我們結合腦波(EEG)、功能性磁振造影 (fMRI)、心電圖(ECG)等生醫訊號與人工智慧技術，目標是研發能應用於臨床疾病的治療、監測、預防，以及提升日常生活品質的創新解決方案。
-						<br />
-						&emsp;&emsp;目前實驗室的研究項目涵蓋多個領域，包括：開發精準的神經調控療法並探討其生理機制、提升駕駛安全的系統、以及心血管手術後腦功能評估的技術。除了應用傳統的機器學習技術與最新的深度學習方法進行分類與預測，我們也注重模型的可解釋性，藉此建立神經生理的相關標記，推動對腦科學的更深入理解，並促進智慧醫療的進步。
-						<br />
-					</p>
-					<p style="text-align: left;">
-						&emsp;&emsp;Our laboratory focuses on the development of intelligent biomedical technologies, particularly in the creation of tools for analyzing neurophysiological signals and medical imaging. 
-						We integrate biomedical signals such as electroencephalography (EEG), functional magnetic resonance imaging (fMRI), and electrocardiography (ECG) with artificial intelligence technologies. 
-						Our goal is to develop innovative solutions that can be applied to the treatment, monitoring, and prevention of clinical diseases, as well as improving the quality of daily life.
-						<br />
-						&emsp;&emsp;The current research projects in our lab cover various fields, including the development of precise neuromodulation therapies and the exploration of their neurophysiological mechanisms, systems to enhance driving safety, and techniques for brain function assessment after cardiovascular surgery. 
-						In addition to applying traditional machine learning techniques and the latest deep learning methods for classification and prediction, we also emphasize model interpretability, aiming to establish relevant neurophysiological markers, further advancing our understanding of brain science, and promoting the progress of intelligent healthcare.
-					</p>
+					<h2>實驗室簡介</h2>
+					<div class="subtitle">(Laboratory Introduction)</div>
 				</header>
+
+				<div class="intro-grid intro-card">
+					<!-- 中文 -->
+					<div class="intro-body zh">
+						<p>我們的實驗室專注於開發智慧生醫技術，特別是針對神經訊號與醫學影像的分析工具。我們結合腦波（EEG）、功能性磁振造影（fMRI）、心電圖（ECG）等生醫訊號與人工智慧技術，目標是研發能應用於臨床疾病的治療、監測、預防，以及提升日常生活品質的創新解決方案。</p>
+						<p>目前實驗室的研究項目涵蓋多個領域，包括：開發精準的神經調控療法並探討其生理機制、提升駕駛安全的系統、以及心血管手術後腦功能評估的技術。除了應用傳統的機器學習技術與最新的深度學習方法進行分類與預測，我們也注重模型的可解釋性，藉此建立神經生理的相關標記，推動對腦科學的更深入理解，並促進智慧醫療的進步。</p>
+					</div>
+
+					<!-- English -->
+					<div class="intro-body en">
+						<p>Our laboratory focuses on the development of intelligent biomedical technologies, particularly in building tools for analyzing neurophysiological signals and medical imaging. We integrate biomedical signals such as electroencephalography (EEG), functional magnetic resonance imaging (fMRI), and electrocardiography (ECG) with artificial intelligence technologies to create innovative solutions for the treatment, monitoring, and prevention of clinical diseases, as well as improving daily quality of life.</p>
+						<p>The current research projects in our lab span several areas, including the development of precise neuromodulation therapies and the exploration of their neurophysiological mechanisms, systems to enhance driving safety, and techniques for assessing brain function after cardiovascular surgery. In addition to applying traditional machine-learning techniques and state-of-the-art deep-learning methods for classification and prediction, we emphasize model interpretability to establish relevant neurophysiological markers, advancing brain-science understanding and promoting intelligent healthcare.</p>
+					</div>
+				</div>
 			</div>
-		</div>	
+		</div>
 
 		<!-- Latest News -->
-        <div class="wrapper">
-            <div class="container">
-                <header class="major">
-                    <h2>最新消息 (News)</h2>
-                </header>
-				<h3><br /></h3>
-                <table class="news-table">
-                    <tr>
-                        <th><b>日期 (Date)</b></th>
-                        <th><b>公告類型 (Announcement type)</b></th>
-                        <th><b>內容 (content)</b></th>
-                    </tr>
-					<tr>
-                        <td><b>2024-07-05</b></td>
-                        <td><span class="news-category">一般公告 (Normal)</span></td>
-                        <td><b>歡迎各位碩一與專題生加入! (Welcome all first-year master's degree and special subject students to join!)</b></td>
-                    </tr>
-                </table>
-                <div class="news-more">
-                    <a href="news.html">更多 (more)>></a>
-                </div>
-            </div>
+    <div class="wrapper">
+      <div class="container">
+        <header class="major">
+          <h2>最新消息 (News)</h2>
+        </header>
+        <h3><br /></h3>
+        <table class="news-table">
+          <tr>
+            <th><b>日期 (Date)</b></th>
+            <th><b>公告類型 (Announcement type)</b></th>
+            <th><b>內容 (content)</b></th>
+          </tr>
+          <tr>
+            <td><b>2024-07-05</b></td>
+            <td><span class="news-category">一般公告 (Normal)</span></td>
+            <td><b>歡迎各位碩一與專題生加入! (Welcome all first-year master's degree and special subject students to join!)</b></td>
+          </tr>
+        </table>
+        <div class="news-more">
+          <a href="news.html">更多 (more)>></a>
         </div>
+      </div>
+    </div>
 
 		<!-- Research Areas -->
 		<div class="wrapper">
 			<div class="container">
 				<header class="major">
-                    <h2>實驗室剪影 (Laboratory Photo)</h2>
-                </header>
+          <h2>實驗室剪影 (Laboratory Photo)</h2>
+        </header>
 				<h3><br /></h3>
 				<div class="row">
 					<section class="col-6 col-12-narrower feature">
 						<div class="image-wrapper first">
 							<a href="#" class="image featured first"><img src="images/實驗室聚餐.jpg" alt="實驗室聚餐" /></a>
 						</div>
-						<header>
-							<h3>實驗室期末聚餐</h3>
-						</header>
+						<header><h3>實驗室期末聚餐</h3></header>
 						<p></p>
 					</section>
 					<section class="col-6 col-12-narrower feature">
 						<div class="image-wrapper">
 							<a href="#" class="image featured"><img src="images/導生聚.jpg" alt="導生聚" /></a>
 						</div>
-						<header>
-							<h3>112導生聚餐</h3>
-						</header>
+						<header><h3>112導生聚餐</h3></header>
 						<p></p>
 					</section>
 					<section class="col-6 col-12-narrower feature">
 						<div class="image-wrapper">
 							<a href="#" class="image featured"><img src="images/導生聚2.jpg" alt="導生聚" /></a>
 						</div>
-						<header>
-							<h3>113導生聚餐</h3>
-						</header>
+						<header><h3>113導生聚餐</h3></header>
 						<p></p>
 					</section>
 				</div>
@@ -140,13 +176,25 @@
 					<section class="col-12">
 						<div class="row gtr-0">
 							<ul class="divided icons col-4 col-12-mobile">
-								<li class="icon solid fa-envelope"><a href="mailto:baisp@mail.csie.ncku.edu.tw" class="inline"><span class="extra">Email: </span>baisp@mail.csie.ncku.edu.tw</a></li>
+								<li class="icon solid fa-envelope">
+                  <a href="mailto:baisp@mail.csie.ncku.edu.tw" class="inline">
+                    <span class="extra">Email: </span>baisp@mail.csie.ncku.edu.tw
+                  </a>
+                </li>
 							</ul>
 							<ul class="divided icons col-4 col-12-mobile">
-								<li class="icon solid fa-phone"><a href="tel:+8866275757562561" class="inline"><span class="extra">Phone: </span>06-2757575 ext 62530 ext 2903</a></li>
+								<li class="icon solid fa-phone">
+                  <a href="tel:+8866275757562561" class="inline">
+                    <span class="extra">Phone: </span>06-2757575 ext 62530 ext 2903
+                  </a>
+                </li>
 							</ul>
 							<ul class="divided icons col-4 col-12-mobile">
-								<li class="icon solid fa-map-marker-alt"><a href="https://maps.app.goo.gl/37TF1A17hMm7oUsn6" target="_blank"><span class="extra">Address: </span>成功大學成功校區資訊新館65903</a></li>
+								<li class="icon solid fa-map-marker-alt">
+                  <a href="https://maps.app.goo.gl/37TF1A17hMm7oUsn6" target="_blank">
+                    <span class="extra">Address: </span>成功大學成功校區資訊新館65903
+                  </a>
+                </li>
 							</ul>
 						</div>
 					</section>
