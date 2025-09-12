@@ -86,9 +86,11 @@
       /* PI：左右排版 */
     .people-feature .person-card{
       display: grid;
-      grid-template-columns: var(--avatar-size) 1fr;
+      /*grid-template-columns: var(--avatar-size) 1fr;*/
+      grid-template-columns: var(--avatar-size) minmax(0,1fr);
       gap: 2rem;
-      align-items: end;          /* 關鍵：底端對齊 */
+      /*align-items: end;*/          /* 關鍵：底端對齊 */
+      align-items:stretch;            /* 右欄撐滿與左圖同高 */  
       justify-content: center;   /* 區塊置中 */
       max-width: 980px;
       margin: 0 auto;
@@ -99,22 +101,32 @@
       grid-column: 1;
       grid-row: 1 / -1;
       margin: 0;
+      width:var(--avatar-size);
+      aspect-ratio:1 / 1;
+      object-fit:cover;
     }
     
-    .people-feature .person-card > :not(.avatar){
-      grid-column: 2;
+    .people-feature .person-card .info{
+      grid-column:2;
+      display:grid;
+      grid-template-rows:auto 1fr auto; /* 標題 | 文字段落 | Email(底部) */
+      min-height:var(--avatar-size);    /* 確保與頭像同高 */
     }
-    
-    /* 手機版：改為上下堆疊 */
-    @media (max-width: 720px){
-      .people-feature .person-card{
-        display:block;
-        text-align:center;
-      }
-      .people-feature .person-card .avatar{
-        margin:0 auto 1rem;
-      }
+    .people-feature .person-card .info .lines{ 
+      max-width:62ch;                  /* 行寬更舒服，也避免拖太長 */
     }
+    .people-feature .person-card .info .email{
+      align-self:end;                  /* 讓 Email 貼齊底部 */
+      margin-top:.5rem;
+    } 
+
+  /* 手機版回到上下堆疊，不強制同高 */
+  @media (max-width: 720px){
+    .people-feature .person-card{ display:block; text-align:center; }
+    .people-feature .person-card .avatar{ margin:0 auto 1rem; }
+    .people-feature .person-card .info{ display:block; min-height:auto; text-align:left; }
+    .people-feature .person-card .info .email{ margin-top:.5rem; }
+  }
     </style>
 </head>
 <body class="homepage is-preload">
@@ -145,26 +157,33 @@
     </div>
 
     <!-- ============ 指導教授 / PI ============ -->
-    <div class="wrapper people-section compact">
-      <div class="container">
-        <header class="major"><h2>指導教授</h2></header>
-        <div class="people-subtitle">(Principal Investigator)</div>
-    
-        <div class="people-feature">
-          <div class="person-card pi">
-            <img class="avatar" src="images/members/老師照片.jpg" alt="詹慧伶 (HUI-LING CHAN)" loading="lazy" />
-            <h3 class="name">
-              <a href="https://www.csie.ncku.edu.tw/zh-hant/members/64" target="_blank"><b>詹慧伶 (HUI-LING CHAN)</b></a>
-            </h3>
+<div class="wrapper people-section compact">
+  <div class="container">
+    <header class="major"><h2>Principal Investigator</h2></header>
+
+    <div class="people-feature">
+      <div class="person-card pi">
+        <img class="avatar" src="images/members/老師照片.jpg" alt="詹慧伶 (HUI-LING CHAN)" loading="lazy" />
+        <div class="info">
+          <h3 class="name">
+            <a href="https://www.csie.ncku.edu.tw/zh-hant/members/64" target="_blank">
+              <b>詹慧伶 (HUI-LING CHAN)</b>
+            </a>
+          </h3>
+
+          <div>
             <p class="lines">專長：生醫訊號處理、腦造影、機器學習、資料科學、精神科學（憂鬱症）</p>
             <p class="lines">(Expertise: Biomedical signal processing, Brain imaging, Machine learning, Data science, Psychiatric science)</p>
             <p class="lines">研究領域：腦造影演算法開發、智慧生醫、腦身體連結機制與調控</p>
             <p class="lines">(Research interest: Brain imaging algorithm development, Smart biomedicine, Brain–body connection)</p>
-            <div class="email">hlchan@gs.ncku.edu.tw</div>
           </div>
+
+          <div class="email">hlchan@gs.ncku.edu.tw</div>
         </div>
       </div>
     </div>
+  </div>
+</div>
 
     <!-- ============ 碩士 / Master ============ -->
     <div class="wrapper people-section">
