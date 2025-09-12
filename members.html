@@ -86,11 +86,9 @@
       /* PI：左右排版 */
     .people-feature .person-card{
       display: grid;
-      /*grid-template-columns: var(--avatar-size) 1fr;*/
-      grid-template-columns: var(--avatar-size) minmax(0,1fr);
+      grid-template-columns: var(--avatar-size) 1fr;
       gap: 2rem;
-      /*align-items: end;*/          /* 關鍵：底端對齊 */
-      align-items:stretch;            /* 右欄撐滿與左圖同高 */  
+      align-items:center;            /* 文字段落與圖片垂直置中 */  
       justify-content: center;   /* 區塊置中 */
       max-width: 980px;
       margin: 0 auto;
@@ -99,7 +97,7 @@
     
     .people-feature .person-card .avatar{
       grid-column: 1;
-      grid-row: 1 / -1;
+      grid-row: 1;
       margin: 0;
       width:var(--avatar-size);
       aspect-ratio:1 / 1;
@@ -108,17 +106,8 @@
     
     .people-feature .person-card .info{
       grid-column:2;
-      display:grid;
-      grid-template-rows:auto 1fr auto; /* 標題 | 文字段落 | Email(底部) */
-      min-height:var(--avatar-size);    /* 確保與頭像同高 */
+      max-width: 62ch; 
     }
-    .people-feature .person-card .info .lines{ 
-      max-width:62ch;                  /* 行寬更舒服，也避免拖太長 */
-    }
-    .people-feature .person-card .info .email{
-      align-self:end;                  /* 讓 Email 貼齊底部 */
-      margin-top:.5rem;
-    } 
 
   /* 手機版回到上下堆疊，不強制同高 */
   @media (max-width: 720px){
@@ -227,16 +216,25 @@
           <div class="person-card">
             <img class="avatar" src="images/members/陳芷翎.jpg" alt="陳芷翎 (CHIH-LING CHEN)" loading="lazy" />
             <h3><b>陳芷翎 (CHIH-LING CHEN)</b></h3>
+            <div class="role">專長：機器學習、深度學習、EEGLAB</div>
+            <div class="role">(Machine Learning, Deep Learning)</div>
+            <div class="role">研究領域：EEG/ TaVNS</div>
           </div>
           <!-- 許同宙 -->
           <div class="person-card">
             <img class="avatar" src="images/members/許同宙.JPG" alt="許同宙 (TUNG-CHOU HSU)" loading="lazy" />
             <h3><b>許同宙 (TUNG-CHOU HSU)</b></h3>
+            <div class="role">專長：深度學習、元學習</div>
+            <div class="role">(Deep Learning, Meta Learning)</div>
+            <div class="role">研究領域：EEG</div>
           </div>
           <!-- 岳梓旭 -->
           <div class="person-card">
             <img class="avatar" src="images/members/岳梓旭.jpg" alt="岳梓旭 (ZIH-SYU YUEH)" loading="lazy" />
             <h3><b>岳梓旭 (ZIH-SYU YUEH)</b></h3>
+            <div class="role">專長：機器學習、深度學習</div>
+            <div class="role">(Machine Learning, Deep Learning)</div>
+            <div class="role">研究領域：fMRI</div>
           </div>
           <!-- 洪祥睿 -->
           <div class="person-card">
@@ -322,7 +320,7 @@
           </div>
           <!-- 杜尹綸 -->
           <div class="person-card">
-            <img class="avatar" src="images/members/杜尹綸.jpg" alt="杜尹綸 (YIN-LUN DU)" loading="lazy"
+            <img class="avatar" src="images/members/杜尹綸.JPG" alt="杜尹綸 (YIN-LUN DU)" loading="lazy"
                  onerror="this.style.display='none';" />
             <h3><b>杜尹綸 (YIN-LUN DU)</b></h3>
           </div>
