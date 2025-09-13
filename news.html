@@ -9,96 +9,94 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
 	<link rel="stylesheet" href="assets/css/main.css" />
 
-	<!-- ===== News Table: Layout & Style Enhancement ===== -->
+	<!-- ===== News: Cleaner Layout ===== -->
 	<style>
-	  /* ===== News 表格：版面優化 ===== */
+	  /* 基本排版優化 */
+	  .wrapper .major h2{ margin-bottom:.25rem; }
 	  .news-table{
 	    width:100%;
 	    border-collapse:separate;
 	    border-spacing:0;
 	    font-size:16px;
-	    line-height:1.6;
-	    color:#1f2937;
+	    line-height:1.65;
+	    color:#111827;
 	    background:#fff;
 	    border-radius:12px;
-	    overflow:hidden;            /* 讓圓角生效 */
+	    overflow:hidden;
 	    box-shadow:0 4px 16px rgba(0,0,0,.06);
 	  }
 	  .news-table th,
 	  .news-table td{
 	    padding:14px 16px;
-	    vertical-align:top;
 	    text-align:left;
+	    vertical-align:top;
 	  }
 	  .news-table th{
-	    background:#f3f4f6;         /* 淺灰表頭 */
+	    background:#f3f4f6;
 	    font-weight:700;
+	    color:#0f172a;
 	    letter-spacing:.2px;
-	    color:#111827;
 	  }
-	  .news-table tr:not(:first-child):hover{
-	    background:#f9fafb;         /* 滑過行的高亮 */
-	  }
+	  /* 斑馬紋 + hover */
+	  .news-table tr:nth-child(even) td{ background:#fcfcfd; }
+	  .news-table tr:hover td{ background:#f8fafc; }
 
-	  /* 欄寬與排版：日期固定寬、類型中等、內容彈性 */
+	  /* 欄寬：日期固定、類型適中、內容彈性 */
 	  .news-table th:nth-child(1), .news-table td:nth-child(1){ width:140px; white-space:nowrap; }
-	  .news-table th:nth-child(2), .news-table td:nth-child(2){ width:260px; }
+	  .news-table th:nth-child(2), .news-table td:nth-child(2){ width:230px; }
 	  .news-table th:nth-child(3), .news-table td:nth-child(3){ width:auto; }
 
-	  /* 內容欄位的標題/副標排版（你目前用 <b> + <br>，這裡做些微優化） */
-	  .news-table td b{
-	    font-weight:700;
-	    display:block;              /* 讓 <b> 佔一行 */
-	  }
-	  .news-table td b + b{
-	    margin-top:.25rem;          /* 若你後續把副標也包 <b>，可有間距 */
-	    font-weight:600;
-	  }
-
-	  /* 類型標籤：膠囊風格 */
+	  /* 類型標籤：降低存在感、視覺一致 */
 	  .news-category{
 	    display:inline-block;
-	    padding:4px 10px;
+	    padding:3px 8px;
 	    border-radius:999px;
-	    background:#eef2ff;         /* 預設淡色底 */
-	    color:#3730a3;              /* 預設字色 */
-	    font-size:14px;
+	    background:#eef2ff;
+	    color:#3730a3;
+	    font-size:13px;
 	    font-weight:600;
 	    line-height:1;
 	    white-space:nowrap;
 	  }
-	  /* 類型色系（可依需要套用） */
-	  .tag--normal{        background:#ecfeff; color:#155e75; }     /* 青色系：一般公告 */
-	  .tag--research{      background:#fef3c7; color:#92400e; }     /* 黃色系：研究成果 */
-	  .tag--degree{        background:#e0f2fe; color:#1e3a8a; }     /* 藍色系：學位成就 */
+	  .tag--normal{     background:#ecfeff; color:#155e75; }
+	  .tag--research{   background:#fef3c7; color:#92400e; }
+	  .tag--scholarly{  background:#ede9fe; color:#5b21b6; }
+	  .tag--degree{     background:#e0f2fe; color:#1e3a8a; }
 
-	  /* 中英雙語的可讀性：把括號內英文稍微變淡（可選） */
-	  .news-table td b .en{
-	    color:#6b7280;              /* 次要語言顏色 */
+	  /* 內容欄：三段式結構（標題 / 副標 / 英文說明） */
+	  .news-item{ display:block; }
+	  .news-title{
+	    font-weight:700;
+	    font-size:1rem;
+	    margin:0 0 .15rem 0;
+	    color:#0b1220;
+	  }
+	  .news-subtitle{
 	    font-weight:600;
+	    margin:.15rem 0 0 0;
+	    color:#334155;
 	  }
+	  .news-en{
+	    color:#6b7280;
+	    font-weight:500;
+	    margin:.25rem 0 0 0;
+	  }
+	  /* 讓中文與英文對齊乾淨 */
+	  .news-title .en, .news-subtitle .en{ color:#6b7280; font-weight:600; }
 
-	  /* 區塊上下留白與標題微調 */
-	  .wrapper .major h2{
-	    margin-bottom:.25rem;
-	  }
-	  .news-table + *{
-	    margin-top:1rem;
-	  }
+	  /* 表頭命名一致 */
+	  .news-table th b{ font-weight:700; }
 
-	  /* 小螢幕優化：表格可捲動 + 字級微調 */
+	  /* 手機：維持水平捲動避免壓縮 */
 	  @media (max-width: 900px){
-	    .news-table{
-	      font-size:15px;
-	    }
+	    .news-table{ font-size:15px; }
 	    .news-table th:nth-child(2), .news-table td:nth-child(2){ width:200px; }
 	  }
 	  @media (max-width: 640px){
-	    /* 行動裝置：用水平滾動避免擠壓 */
 	    .news-table{ display:block; overflow:auto; }
 	    .news-table th, .news-table td{ padding:12px; }
 	    .news-table th:nth-child(1), .news-table td:nth-child(1){ width:120px; }
-	    .news-table th:nth-child(2), .news-table td:nth-child(2){ width:220px; }
+	    .news-table th:nth-child(2), .news-table td:nth-child(2){ width:200px; }
 	  }
 	</style>
 </head>
@@ -107,16 +105,12 @@
 
 		<!-- Header -->
 		<div id="header-wrapper">
-			<!-- Hero -->
 			<section id="hero" class="container">
-				<header>
-					<h2>BAISP Lab</h2>
-				</header>
+				<header><h2>BAISP Lab</h2></header>
 				<p>Biomedical Artificial Intelligence and Signal Processing Lab</p>
 				<p>智慧生醫與訊號處理實驗室</p>
 			</section>
 			<div id="header" class="container">
-				<!-- Nav -->
 				<nav id="nav">
 					<ul>
 						<li><a href="index.html">Home</a></li>
@@ -137,54 +131,71 @@
                     <h2>最新消息 (News)</h2>
                 </header>
 				<h3><br /></h3>
+
                 <table class="news-table">
-                    <tr>
-                        <th><b>日期 (Date)</b></th>
-                        <th><b>公告類型 (Announcement type)</b></th>
-                        <th><b>內容 (Content)</b></th>
-                    </tr>
+                  <tr>
+                    <th><b>日期 (Date)</b></th>
+                    <th><b>公告類型 (Announcement type)</b></th>
+                    <th><b>內容 (Content)</b></th>
+                  </tr>
 
-					<!-- 2024-07-05 -->
-					<tr>
-                        <td><b>2024-07-05</b></td>
-                        <td><span class="news-category tag--normal">一般公告 (Normal)</span></td>
-                        <td><b>歡迎各位碩一與專題生加入！ <span class="en">(Welcome all first-year master's students and capstone students!)</span></b></td>
-                    </tr>
+                  <!-- 2024-07-05 -->
+                  <tr>
+                    <td>2024-07-05</td>
+                    <td><span class="news-category tag--normal">一般公告 (Normal)</span></td>
+                    <td>
+                      <div class="news-item">
+                        <div class="news-title">歡迎各位碩一與專題生加入！ <span class="en">(Welcome all first-year master's students and capstone students!)</span></div>
+                      </div>
+                    </td>
+                  </tr>
 
-					<!-- 2025-02-12 -->
-					<tr>
-					    <td><b>2025-02-12</b></td>
-					    <td><span class="news-category tag--research">研究成果 (Research Achievement)</span></td>
-					    <td><b>恭喜承揚的研究論文獲得接受！ <span class="en">(Congratulations to Cheng-Yang on his paper being accepted!)</span><br>
-					        論文題目 (Paper Title): Brain anatomy predicts the efficacy of noninvasive vagus nerve stimulation on pain learning</b></td>
-					</tr>
+                  <!-- 2025-02-12 -->
+                  <tr>
+                    <td>2025-02-12</td>
+                    <td><span class="news-category tag--research">研究成果 (Research Achievement)</span></td>
+                    <td>
+                      <div class="news-item">
+                        <div class="news-title">恭喜承揚的研究論文獲得接受！ <span class="en">(Congratulations to Cheng-Yang on his paper being accepted!)</span></div>
+                        <div class="news-subtitle">論文題目 (Paper Title)：Brain anatomy predicts the efficacy of noninvasive vagus nerve stimulation on pain learning</div>
+                      </div>
+                    </td>
+                  </tr>
 
-					<!-- 2025-06-13 -->
-					<tr>
-					    <td><b>2025-06-13</b></td>
-					    <td><span class="news-category tag--research">研究成果 (Research Achievement)</span></td>
-					    <td><b>恭喜本實驗室專題生梧詩、雅行於本校資訊系115級畢業專題展榮獲佳作！ 
-					        <span class="en">(Congratulations to our undergraduate students Wu-Shi and Ya-Hsing for winning Honorable Mention at the 115th Graduation Project Exhibition of the Department of Computer Science!)</span><br>
-					        專題題目 (Project Title): 駕駛模擬情境下的腦波情緒辨識系統 <span class="en">(EEG-Based Emotional Recognition for Driving Simulation Scenarios)</span></b></td>
-					</tr>
+                  <!-- 2025-06-13 -->
+                  <tr>
+                    <td>2025-06-13</td>
+                    <td><span class="news-category tag--research">研究成果 (Research Achievement)</span></td>
+                    <td>
+                      <div class="news-item">
+                        <div class="news-title">恭喜本實驗室專題生梧詩、雅行於本校資訊系115級畢業專題展榮獲佳作！ <span class="en">(Congratulations to our undergraduate students Wu-Shi and Ya-Hsing for winning Honorable Mention at the 115th Graduation Project Exhibition of the Department of Computer Science!)</span></div>
+                        <div class="news-subtitle">專題題目 (Project Title)：駕駛模擬情境下的腦波情緒辨識系統 <span class="en">(EEG-Based Emotional Recognition for Driving Simulation Scenarios)</span></div>
+                      </div>
+                    </td>
+                  </tr>
 
-					<!-- 2025-07-01 -->
-					<tr>
-					    <td><b>2025-07-01</b></td>
-					    <td><span class="news-category tag--research">研究成果 (Research Achievement)</span></td>
-					    <td><b>恭喜本實驗室專題生梧詩之國科會大專生研究計畫獲得通過！ 
-							<span class="en">(Congratulations to our undergraduate student Wu-Shi on the approval of the NSTC Undergraduate Research Project!)</span><br>
-					        計畫名稱 (Project Title): 運用腦波進行情緒辨識之駕駛模擬器開發與駕駛行為及情緒分析 
-							<span class="en">(Development of a Driving Simulator for Emotion Recognition Using EEG and Analysis of Driving Behavior and Emotions)</span></b></td>
-					</tr>
+                  <!-- 2025-07-01 -->
+                  <tr>
+                    <td>2025-07-01</td>
+                    <td><span class="news-category tag--research">研究成果 (Research Achievement)</span></td>
+                    <td>
+                      <div class="news-item">
+                        <div class="news-title">恭喜本實驗室專題生梧詩之國科會大專生研究計畫獲得通過！ <span class="en">(Congratulations to our undergraduate student Wu-Shi on the approval of the NSTC Undergraduate Research Project!)</span></div>
+                        <div class="news-subtitle">計畫名稱 (Project Title)：運用腦波進行情緒辨識之駕駛模擬器開發與駕駛行為及情緒分析 <span class="en">(Development of a Driving Simulator for Emotion Recognition Using EEG and Analysis of Driving Behavior and Emotions)</span></div>
+                      </div>
+                    </td>
+                  </tr>
 
-					<!-- 2025-07-29 -->
-					<tr>
-					    <td><b>2025-07-29</b></td>
-					    <td><span class="news-category tag--degree">學位成就 (Degree Achievement)</span></td>
-					    <td><b>恭喜柏儒、翊峰榮獲碩士學位！ 
-					        <span class="en">(Congratulations to Po-Ju and Yi-Feng on receiving their Master's degrees!)</span></b></td>
-					</tr>
+                  <!-- 2025-07-29 -->
+                  <tr>
+                    <td>2025-07-29</td>
+                    <td><span class="news-category tag--degree">學位成就 (Degree Achievement)</span></td>
+                    <td>
+                      <div class="news-item">
+                        <div class="news-title">恭喜柏儒、翊峰榮獲碩士學位！ <span class="en">(Congratulations to Po-Ju and Yi-Feng on receiving their Master's degrees!)</span></div>
+                      </div>
+                    </td>
+                  </tr>
                 </table>
             </div>
         </div>
@@ -192,9 +203,7 @@
 		<!-- Contact -->
 		<div id="footer-wrapper">
 			<div id="footer" class="container">
-				<header class="major">
-					<h2>Contact Us</h2>
-				</header>
+				<header class="major"><h2>Contact Us</h2></header>
 				<div class="row">
 					<section class="col-12">
 						<div class="row gtr-0">
@@ -227,6 +236,5 @@
 	<script src="assets/js/breakpoints.min.js"></script>
 	<script src="assets/js/util.js"></script>
 	<script src="assets/js/main.js"></script>
-
 </body>
 </html>
