@@ -1,38 +1,38 @@
 <!DOCTYPE HTML>
 <!--
-	BAISP Lab Website
+  BAISP Lab Website
 -->
 <html>
 <head>
-	<title>BAISP Lab</title>
-	<meta charset="utf-8" />
-	<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
-	<link rel="stylesheet" href="assets/css/main.css" />
+  <title>BAISP Lab</title>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+  <link rel="stylesheet" href="assets/css/main.css" />
 
-  <!-- ===== Intro section styles ===== -->
+  <!-- ===== Intro section styles (原本就有) ===== -->
   <style>
     /* 標題與副標題 */
     .intro-section .major h2{
       text-align:center;
-      margin-bottom:.35rem;               /* 標題與副標題距離 */
+      margin-bottom:.35rem;
     }
     .intro-section .subtitle{
       text-align:center;
       color:#666;
       font-size:.95rem;
-      margin-bottom:1.75rem;              /* 副標題與內文距離 */
+      margin-bottom:1.75rem;
     }
 
     /* 內容版型：桌機雙欄、手機單欄 */
     .intro-grid{
       display:grid;
-      grid-template-columns: 1fr;         /* 手機：單欄 */
+      grid-template-columns: 1fr;
       gap: 1.25rem 2rem;
       max-width: 980px;
       margin: 0 auto;
     }
     @media (min-width: 900px){
-      .intro-grid{ grid-template-columns: 1fr 1fr; } /* 桌機：雙欄 */
+      .intro-grid{ grid-template-columns: 1fr 1fr; }
     }
 
     /* 文字排版 */
@@ -41,10 +41,10 @@
       line-height:1.9;
       color:#333;
       text-align: justify;
-      text-justify: inter-ideograph;      /* 中文對齊更自然 */
+      text-justify: inter-ideograph;
     }
-    .intro-body p{ margin: 0 0 1rem 0; }  /* 段落間距 */
-    .intro-body.en{ hyphens: auto; }      /* 英文自動斷詞，避免溢出 */
+    .intro-body p{ margin: 0 0 1rem 0; }
+    .intro-body.en{ hyphens: auto; }
 
     /* 柔和背景卡片感（可移除） */
     .intro-card{
@@ -54,189 +54,322 @@
       padding: 1.25rem;
     }
   </style>
+
+  <!-- ===== News: 與公告頁一致的排版（新增） ===== -->
+  <style>
+    .wrapper .major h2{ margin-bottom:.25rem; }
+
+    .news-table{
+      width:100%;
+      border-collapse:separate;
+      border-spacing:0;
+      font-size:16px;
+      line-height:1.65;
+      color:#111827;
+      background:#fff;
+      border-radius:12px;
+      overflow:hidden;
+      box-shadow:0 4px 16px rgba(0,0,0,.06);
+    }
+    .news-table th,
+    .news-table td{
+      padding:14px 16px;
+      text-align:left;
+      vertical-align:top;
+    }
+    .news-table th{
+      background:#f3f4f6;
+      font-weight:700;
+      color:#0f172a;
+      letter-spacing:.2px;
+    }
+    .news-table tr:nth-child(even) td{ background:#fcfcfd; }
+    .news-table tr:hover td{ background:#f8fafc; }
+
+    /* 欄寬：日期固定、類型適中、內容彈性 */
+    .news-table th:nth-child(1), .news-table td:nth-child(1){ width:140px; white-space:nowrap; }
+    .news-table th:nth-child(2), .news-table td:nth-child(2){ width:230px; }
+    .news-table th:nth-child(3), .news-table td:nth-child(3){ width:auto; }
+
+    /* 類型標籤（與公告頁一致） */
+    .news-category{
+      display:inline-block;
+      padding:3px 8px;
+      border-radius:999px;
+      background:#eef2ff;
+      color:#3730a3;
+      font-size:13px;
+      font-weight:600;
+      line-height:1;
+      white-space:nowrap;
+    }
+    .tag--normal{     background:#ecfeff; color:#155e75; }
+    .tag--research{   background:#fef3c7; color:#92400e; }
+    .tag--scholarly{  background:#ede9fe; color:#5b21b6; }
+    .tag--degree{     background:#e0f2fe; color:#1e3a8a; }
+
+    /* 內容欄：標題 / 副標 / 英文說明 */
+    .news-item{ display:block; }
+    .news-title{
+      font-weight:700;
+      font-size:1rem;
+      margin:0 0 .15rem 0;
+      color:#0b1220;
+    }
+    .news-subtitle{
+      font-weight:600;
+      margin:.15rem 0 0 0;
+      color:#334155;
+    }
+    .news-en{
+      color:#6b7280;
+      font-weight:500;
+      margin:.25rem 0 0 0;
+    }
+    .news-title .en, .news-subtitle .en{ color:#6b7280; font-weight:600; }
+
+    /* 讓整則內容可點擊的 a 樣式（不突兀） */
+    .news-link{
+      display:block;
+      text-decoration:none;
+      color:inherit;
+      border-radius:8px;
+      padding:6px 8px;
+      margin:-6px -8px; /* 擴大可點擊範圍，與 padding 抵銷 */
+      transition: background .15s ease;
+    }
+    .news-link:hover{ background:#f1f5f9; }
+
+    /* "更多" 連結 */
+    .news-more{
+      margin-top:.75rem;
+      text-align:right;
+    }
+    .news-more a{
+      text-decoration:none;
+      font-weight:600;
+      color:#374151;
+      padding:6px 10px;
+      border-radius:8px;
+    }
+    .news-more a:hover{ background:#f3f4f6; }
+
+    /* 手機：維持水平捲動避免壓縮 */
+    @media (max-width: 900px){
+      .news-table{ font-size:15px; }
+      .news-table th:nth-child(2), .news-table td:nth-child(2){ width:200px; }
+    }
+    @media (max-width: 640px){
+      .news-table{ display:block; overflow:auto; }
+      .news-table th, .news-table td{ padding:12px; }
+      .news-table th:nth-child(1), .news-table td:nth-child(1){ width:120px; }
+      .news-table th:nth-child(2), .news-table td:nth-child(2){ width:200px; }
+    }
+  </style>
 </head>
 <body class="homepage is-preload">
-	<div id="page-wrapper">
+  <div id="page-wrapper">
 
-		<!-- Header -->
-		<div id="header-wrapper">
-			<!-- Hero -->
-			<section id="hero" class="container">
-				<header>
-					<h2>BAISP Lab</h2>
-				</header>
-				<p>Biomedical Artificial Intelligence and Signal Processing Lab</p>
-				<p>智慧生醫與訊號處理實驗室</p>
-			</section>
+    <!-- Header -->
+    <div id="header-wrapper">
+      <!-- Hero -->
+      <section id="hero" class="container">
+        <header>
+          <h2>BAISP Lab</h2>
+        </header>
+        <p>Biomedical Artificial Intelligence and Signal Processing Lab</p>
+        <p>智慧生醫與訊號處理實驗室</p>
+      </section>
 
-			<div id="header" class="container">
-				<!-- Nav -->
-				<nav id="nav">
-					<ul>
-						<li><a href="index.html">Home</a></li>
-						<li><a href="news.html">News</a></li>
-						<li><a href="members.html">Members</a></li>
-						<li><a href="research.html">Research</a></li>
-						<li><a href="course.html">Course</a></li>
-						<li><a href="forlab.html">For lab</a></li>
-					</ul>
-				</nav>
-			</div>
-		</div>
+      <div id="header" class="container">
+        <!-- Nav -->
+        <nav id="nav">
+          <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="news.html">News</a></li>
+            <li><a href="members.html">Members</a></li>
+            <li><a href="research.html">Research</a></li>
+            <li><a href="course.html">Course</a></li>
+            <li><a href="forlab.html">For lab</a></li>
+          </ul>
+        </nav>
+      </div>
+    </div>
 
-		<!-- ===== Introduction (new) ===== -->
-		<div class="wrapper intro-section">
-			<div class="container">
-				<header class="major">
-					<h2>實驗室簡介</h2>
-					<div class="subtitle">(Laboratory Introduction)</div>
-				</header>
+    <!-- ===== Introduction (new) ===== -->
+    <div class="wrapper intro-section">
+      <div class="container">
+        <header class="major">
+          <h2>實驗室簡介</h2>
+          <div class="subtitle">(Laboratory Introduction)</div>
+        </header>
 
-				<div class="intro-grid intro-card">
-					<!-- 中文 -->
-					<div class="intro-body zh">
-						<p>我們的實驗室專注於開發智慧生醫技術，特別是針對神經訊號與醫學影像的分析工具。我們結合腦波（EEG）、功能性磁振造影（fMRI）、心電圖（ECG）等生醫訊號與人工智慧技術，目標是研發能應用於臨床疾病的治療、監測、預防，以及提升日常生活品質的創新解決方案。</p>
-						<p>目前實驗室的研究項目涵蓋多個領域，包括：開發精準的神經調控療法並探討其生理機制、提升駕駛安全的系統、以及心血管手術後腦功能評估的技術。除了應用傳統的機器學習技術與最新的深度學習方法進行分類與預測，我們也注重模型的可解釋性，藉此建立神經生理的相關標記，推動對腦科學的更深入理解，並促進智慧醫療的進步。</p>
-					</div>
+        <div class="intro-grid intro-card">
+          <!-- 中文 -->
+          <div class="intro-body zh">
+            <p>我們的實驗室專注於開發智慧生醫技術，特別是針對神經訊號與醫學影像的分析工具。我們結合腦波（EEG）、功能性磁振造影（fMRI）、心電圖（ECG）等生醫訊號與人工智慧技術，目標是研發能應用於臨床疾病的治療、監測、預防，以及提升日常生活品質的創新解決方案。</p>
+            <p>目前實驗室的研究項目涵蓋多個領域，包括：開發精準的神經調控療法並探討其生理機制、提升駕駛安全的系統、以及心血管手術後腦功能評估的技術。除了應用傳統的機器學習技術與最新的深度學習方法進行分類與預測，我們也注重模型的可解釋性，藉此建立神經生理的相關標記，推動對腦科學的更深入理解，並促進智慧醫療的進步。</p>
+          </div>
 
-					<!-- English -->
-					<div class="intro-body en">
-						<p>Our laboratory focuses on the development of intelligent biomedical technologies, particularly in building tools for analyzing neurophysiological signals and medical imaging. We integrate biomedical signals such as electroencephalography (EEG), functional magnetic resonance imaging (fMRI), and electrocardiography (ECG) with artificial intelligence technologies to create innovative solutions for the treatment, monitoring, and prevention of clinical diseases, as well as improving daily quality of life.</p>
-						<p>The current research projects in our lab span several areas, including the development of precise neuromodulation therapies and the exploration of their neurophysiological mechanisms, systems to enhance driving safety, and techniques for assessing brain function after cardiovascular surgery. In addition to applying traditional machine-learning techniques and state-of-the-art deep-learning methods for classification and prediction, we emphasize model interpretability to establish relevant neurophysiological markers, advancing brain-science understanding and promoting intelligent healthcare.</p>
-					</div>
-				</div>
-			</div>
-		</div>
+          <!-- English -->
+          <div class="intro-body en">
+            <p>Our laboratory focuses on the development of intelligent biomedical technologies, particularly in building tools for analyzing neurophysiological signals and medical imaging. We integrate biomedical signals such as electroencephalography (EEG), functional magnetic resonance imaging (fMRI), and electrocardiography (ECG) with artificial intelligence technologies to create innovative solutions for the treatment, monitoring, and prevention of clinical diseases, as well as improving daily quality of life.</p>
+            <p>The current research projects in our lab span several areas, including the development of precise neuromodulation therapies and the exploration of their neurophysiological mechanisms, systems to enhance driving safety, and techniques for assessing brain function after cardiovascular surgery. In addition to applying traditional machine-learning techniques and state-of-the-art deep-learning methods for classification and prediction, we emphasize model interpretability to establish relevant neurophysiological markers, advancing brain-science understanding and promoting intelligent healthcare.</p>
+          </div>
+        </div>
+      </div>
+    </div>
 
-		<!-- Latest News -->
+    <!-- ===== Latest News（與 news.html 同版型 + 可點擊） ===== -->
     <div class="wrapper">
       <div class="container">
         <header class="major">
           <h2>最新消息 (News)</h2>
         </header>
         <h3><br /></h3>
+
         <table class="news-table">
           <tr>
             <th><b>日期 (Date)</b></th>
             <th><b>公告類型 (Announcement type)</b></th>
-            <th><b>內容 (content)</b></th>
+            <th><b>內容 (Content)</b></th>
           </tr>
           <tr>
-            <td><b>2024-07-05</b></td>
-            <td><span class="news-category">一般公告 (Normal)</span></td>
-            <td><b>歡迎各位碩一與專題生加入! (Welcome all first-year master's degree and special subject students to join!)</b></td>
+            <td>2025-02-12</td>
+            <td><span class="news-category tag--research">研究成果 (Research Achievement)</span></td>
+            <td>
+              <a class="news-link" href="news.html">
+                <div class="news-item">
+                  <div class="news-title">恭喜承揚的研究論文獲得接受！ <span class="en">(Congratulations to Cheng-Yang on his paper being accepted!)</span></div>
+                  <div class="news-subtitle">論文題目：Brain anatomy predicts the efficacy of noninvasive vagus nerve stimulation on pain learning</div>
+                </div>
+              </a>
+            </td>
+          </tr>
+
+          <tr>
+            <td>2024-07-05</td>
+            <td><span class="news-category tag--normal">一般公告 (Normal)</span></td>
+            <td>
+              <a class="news-link" href="news.html">
+                <div class="news-item">
+                  <div class="news-title">歡迎各位碩一與專題生加入！ <span class="en">(Welcome all first-year master's students and capstone students!)</span></div>
+                </div>
+              </a>
+            </td>
           </tr>
         </table>
+
         <div class="news-more">
-          <a href="news.html">更多 (more)>></a>
+          <a href="news.html">更多 (More) &raquo;</a>
         </div>
       </div>
     </div>
 
-		<!-- Research Areas -->
-		<div class="wrapper">
-			<div class="container">
-				<header class="major">
+    <!-- Laboratory Photo -->
+    <div class="wrapper">
+      <div class="container">
+        <header class="major">
           <h2>實驗室剪影 (Laboratory Photo)</h2>
         </header>
-				<h3><br /></h3>
-				<div class="row">
-					<section class="col-6 col-12-narrower feature">
-						<div class="image-wrapper first">
-							<a href="#" class="image featured first"><img src="images/實驗室聚餐.jpg" alt="實驗室聚餐" /></a>
-						</div>
-						<header><h3>實驗室期末聚餐</h3></header>
-						<p></p>
-					</section>
-					<section class="col-6 col-12-narrower feature">
-						<div class="image-wrapper">
-							<a href="#" class="image featured"><img src="images/導生聚.jpg" alt="導生聚" /></a>
-						</div>
-						<header><h3>112導生聚餐</h3></header>
-						<p></p>
-					</section>
-					<section class="col-6 col-12-narrower feature">
-						<div class="image-wrapper">
-							<a href="#" class="image featured"><img src="images/導生聚2.jpg" alt="導生聚" /></a>
-						</div>
-						<header><h3>113導生聚餐</h3></header>
-						<p></p>
-					</section>
-					<section class="col-6 col-12-narrower feature">
-						<div class="image-wrapper">
-							<a href="#" class="image featured"><img src="images/114春酒.jpg" alt="114春酒" /></a>
-						</div>
-						<header><h3>114春酒</h3></header>
-						<p></p>
-					</section>
-					<section class="col-6 col-12-narrower feature">
-						<div class="image-wrapper">
-							<a href="#" class="image featured"><img src="images/實驗室送舊迎新1.jpg" alt="實驗室送舊迎新1" /></a>
-						</div>
-						<header><h3>實驗室送舊迎新-1</h3></header>
-						<p></p>
-					</section>
-					<section class="col-6 col-12-narrower feature">
-						<div class="image-wrapper">
-							<a href="#" class="image featured"><img src="images/實驗室送舊迎新2.jpg" alt="實驗室送舊迎新2" /></a>
-						</div>
-						<header><h3>實驗室送舊迎新-2</h3></header>
-						<p></p>
-					</section>
-				</div>
-			</div>
-		</div>
+        <h3><br /></h3>
+        <div class="row">
+          <section class="col-6 col-12-narrower feature">
+            <div class="image-wrapper first">
+              <a href="#" class="image featured first"><img src="images/實驗室聚餐.jpg" alt="實驗室聚餐" /></a>
+            </div>
+            <header><h3>實驗室期末聚餐</h3></header>
+            <p></p>
+          </section>
+          <section class="col-6 col-12-narrower feature">
+            <div class="image-wrapper">
+              <a href="#" class="image featured"><img src="images/導生聚.jpg" alt="導生聚" /></a>
+            </div>
+            <header><h3>112導生聚餐</h3></header>
+            <p></p>
+          </section>
+          <section class="col-6 col-12-narrower feature">
+            <div class="image-wrapper">
+              <a href="#" class="image featured"><img src="images/導生聚2.jpg" alt="導生聚" /></a>
+            </div>
+            <header><h3>113導生聚餐</h3></header>
+            <p></p>
+          </section>
+          <section class="col-6 col-12-narrower feature">
+            <div class="image-wrapper">
+              <a href="#" class="image featured"><img src="images/114春酒.jpg" alt="114春酒" /></a>
+            </div>
+            <header><h3>114春酒</h3></header>
+            <p></p>
+          </section>
+          <section class="col-6 col-12-narrower feature">
+            <div class="image-wrapper">
+              <a href="#" class="image featured"><img src="images/實驗室送舊迎新1.jpg" alt="實驗室送舊迎新1" /></a>
+            </div>
+            <header><h3>實驗室送舊迎新-1</h3></header>
+            <p></p>
+          </section>
+          <section class="col-6 col-12-narrower feature">
+            <div class="image-wrapper">
+              <a href="#" class="image featured"><img src="images/實驗室送舊迎新2.jpg" alt="實驗室送舊迎新2" /></a>
+            </div>
+            <header><h3>實驗室送舊迎新-2</h3></header>
+            <p></p>
+          </section>
+        </div>
+      </div>
+    </div>
 
-		<!-- Contact -->
-		<div id="footer-wrapper">
-			<div id="footer" class="container">
-				<header class="major">
-					<h2>聯絡我們 (Contact Us)</h2>
-				</header>
-				<div class="row">
-					<section class="col-12">
-						<div class="row gtr-0">
-							<ul class="divided icons col-4 col-12-mobile">
-								<li class="icon solid fa-envelope">
+    <!-- Contact -->
+    <div id="footer-wrapper">
+      <div id="footer" class="container">
+        <header class="major">
+          <h2>聯絡我們 (Contact Us)</h2>
+        </header>
+        <div class="row">
+          <section class="col-12">
+            <div class="row gtr-0">
+              <ul class="divided icons col-4 col-12-mobile">
+                <li class="icon solid fa-envelope">
                   <a href="mailto:baisp@mail.csie.ncku.edu.tw" class="inline">
                     <span class="extra">Email: </span>baisp@mail.csie.ncku.edu.tw
                   </a>
                 </li>
-							</ul>
-							<ul class="divided icons col-4 col-12-mobile">
-								<li class="icon solid fa-phone">
+              </ul>
+              <ul class="divided icons col-4 col-12-mobile">
+                <li class="icon solid fa-phone">
                   <a href="tel:+8866275757562561" class="inline">
                     <span class="extra">Phone: </span>06-2757575 ext 62530 ext 2903
                   </a>
                 </li>
-							</ul>
-							<ul class="divided icons col-4 col-12-mobile">
-								<li class="icon solid fa-map-marker-alt">
+              </ul>
+              <ul class="divided icons col-4 col-12-mobile">
+                <li class="icon solid fa-map-marker-alt">
                   <a href="https://maps.app.goo.gl/37TF1A17hMm7oUsn6" target="_blank">
                     <span class="extra">Address: </span>成功大學成功校區資訊新館65903
                   </a>
                 </li>
-							</ul>
-						</div>
-					</section>
-				</div>
-			</div>
-			<div id="copyright" class="container">
-				<ul class="menu">
-					<li>&copy; BAISP Lab. All rights reserved.</li><li>Design: <a href="http://html5up.net">HTML5 UP</a></li>
-				</ul>
-			</div>
-		</div>
+              </ul>
+            </div>
+          </section>
+        </div>
+      </div>
+      <div id="copyright" class="container">
+        <ul class="menu">
+          <li>&copy; BAISP Lab. All rights reserved.</li><li>Design: <a href="http://html5up.net">HTML5 UP</a></li>
+        </ul>
+      </div>
+    </div>
 
-	</div>
+  </div>
 
-	<!-- Scripts -->
-	<script src="assets/js/jquery.min.js"></script>
-	<script src="assets/js/jquery.dropotron.min.js"></script>
-	<script src="assets/js/browser.min.js"></script>
-	<script src="assets/js/breakpoints.min.js"></script>
-	<script src="assets/js/util.js"></script>
-	<script src="assets/js/main.js"></script>
+  <!-- Scripts -->
+  <script src="assets/js/jquery.min.js"></script>
+  <script src="assets/js/jquery.dropotron.min.js"></script>
+  <script src="assets/js/browser.min.js"></script>
+  <script src="assets/js/breakpoints.min.js"></script>
+  <script src="assets/js/util.js"></script>
+  <script src="assets/js/main.js"></script>
 
 </body>
 </html>
