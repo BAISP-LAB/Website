@@ -9,58 +9,133 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
   <link rel="stylesheet" href="assets/css/main.css" />
 
-  <style>
-    /* 主要標題樣式 */
-    .major h2 {
-      text-align: center;
-      margin-bottom: .25rem;
-    }
-    .subtitle {
-      text-align: center;
-      color: #666;
-      font-size: .95rem;
-      margin-bottom: 2rem;
-    }
-
-    /* 主內容區塊 */
-    .recruitment-section {
-      max-width: 960px;
-      margin: 0 auto;
-      background: rgba(0, 0, 0, .02);
-      border: 1px solid rgba(0, 0, 0, .06);
-      border-radius: 14px;
-      padding: 2rem 2.5rem;
-      font-size: 1.1rem;
-      line-height: 1.9;
-      color: #333;
-    }
-    .recruitment-section h3 {
-      color: #0f172a;
-      font-weight: 700;
-      margin-top: 1.75rem;
-      margin-bottom: .75rem;
-    }
-    .recruitment-section ul {
-      list-style-type: "• ";
-      padding-left: 1.5rem;
-    }
-    .recruitment-section li { margin-bottom: .5rem; }
-
-    .apply-btn {
-      display: inline-block;
-      margin-top: 1.5rem;
-      padding: .75rem 1.5rem;
-      background-color: #003366;
-      color: #fff !important;
-      border-radius: 8px;
-      font-weight: 600;
-      text-decoration: none;
-      transition: background .25s ease;
-    }
-    .apply-btn:hover {
-      background-color: #0059b3;
-    }
-  </style>
+	  <style>
+	  /* 主要標題樣式 */
+	  .major h2 {
+	    text-align: center;
+	    margin-bottom: .25rem;
+	  }
+	  .subtitle {
+	    text-align: center;
+	    color: #666;
+	    font-size: .95rem;
+	    margin-bottom: 1.5rem;
+	  }
+	
+	  /* 列表容器：不要太寬、不要太厚重 */
+	  .recruit-list {
+	    max-width: 980px;
+	    margin: 0 auto;
+	    display: grid;
+	    gap: 1rem;
+	  }
+	
+	  /* 單筆招募卡片：更薄、更像「一條」 */
+	  .recruit-card {
+	    background: #fff;
+	    border: 1px solid rgba(0,0,0,.08);
+	    border-radius: 14px;
+	    padding: 1.1rem 1.25rem;
+	    box-shadow: 0 6px 18px rgba(0,0,0,.05);
+	  }
+	
+	  .recruit-card-header {
+	    display: flex;
+	    align-items: flex-start;
+	    justify-content: space-between;
+	    gap: .75rem;
+	    margin-bottom: .35rem;
+	  }
+	
+	  .recruit-title {
+	    margin: 0;
+	    font-size: 1.15rem;
+	    font-weight: 800;
+	    color: #0f172a;
+	    line-height: 1.35;
+	  }
+	
+	  /* 狀態/標籤（可選） */
+	  .recruit-badge {
+	    flex: 0 0 auto;
+	    font-size: .85rem;
+	    padding: .2rem .6rem;
+	    border-radius: 999px;
+	    background: rgba(0,51,102,.10);
+	    color: #003366;
+	    border: 1px solid rgba(0,51,102,.18);
+	    font-weight: 700;
+	    white-space: nowrap;
+	  }
+	
+	  /* 精簡描述 */
+	  .recruit-desc {
+	    margin: .25rem 0 .8rem;
+	    color: #334155;
+	    line-height: 1.7;
+	    font-size: 1.0rem;
+	  }
+	
+	  /* 一行式 meta 資訊（地點/時長/補助等） */
+	  .recruit-meta {
+	    display: flex;
+	    flex-wrap: wrap;
+	    gap: .5rem .75rem;
+	    margin: 0 0 .85rem;
+	    padding: 0;
+	    list-style: none;
+	    color: #475569;
+	    font-size: .95rem;
+	  }
+	  .recruit-meta li {
+	    display: inline-flex;
+	    align-items: center;
+	    gap: .4rem;
+	    padding: .2rem .55rem;
+	    border-radius: 10px;
+	    background: rgba(0,0,0,.03);
+	    border: 1px solid rgba(0,0,0,.06);
+	  }
+	
+	  /* CTA */
+	  .recruit-actions {
+	    display: flex;
+	    gap: .6rem;
+	    flex-wrap: wrap;
+	  }
+	  .btn-primary {
+	    display: inline-block;
+	    padding: .55rem 1rem;
+	    background-color: #003366;
+	    color: #fff !important;
+	    border-radius: 10px;
+	    font-weight: 700;
+	    text-decoration: none;
+	    transition: background .25s ease;
+	    font-size: .95rem;
+	  }
+	  .btn-primary:hover { background-color: #0059b3; }
+	
+	  .btn-ghost {
+	    display: inline-block;
+	    padding: .55rem 1rem;
+	    background: transparent;
+	    color: #003366 !important;
+	    border: 1px solid rgba(0,51,102,.35);
+	    border-radius: 10px;
+	    font-weight: 700;
+	    text-decoration: none;
+	    transition: background .25s ease;
+	    font-size: .95rem;
+	  }
+	  .btn-ghost:hover { background: rgba(0,51,102,.06); }
+	
+	  /* 小螢幕稍微縮一下 padding */
+	  @media (max-width: 736px) {
+	    .recruit-card { padding: 1rem 1rem; }
+	    .recruit-title { font-size: 1.05rem; }
+	  }
+	</style>
 </head>
 
 <body class="homepage is-preload">
@@ -101,29 +176,39 @@
           <div class="subtitle">我們誠摯邀請您參與本實驗室的研究計畫</div>
         </header>
 
-        <section class="recruitment-section">
-          <p>本實驗室目前正在進行 taVNS 在調控內感受（interoception）中的作用的相關研究，包含腦波 (EEG)、心電圖 (ECG) 及內感受任務分析，旨在了解大腦與身體間的交互作用機制。我們誠摯邀請符合條件的您參與實驗，共同推動科學與醫療的進步。</p>
+        <section class="recruit-list">
 
-          <h3>📋 招募條件 / Eligibility</h3>
-          <ul>
-            <li>年齡：20-60 歲</li>
-			<li>無神經、精神或心血管相關疾病</li>
-            <li>可了解研究內容並執行研究所需任務</li>
-            <li>可於指定時段至成功大學醫學院參與實驗（約 2.5–3 小時）</li>
-          </ul>
+		  <!-- 招募項目 1：taVNS + interoception -->
+		  <article class="recruit-card">
+		    <div class="recruit-card-header">
+		      <h3 class="recruit-title">taVNS 調控內感受研究：EEG/ECG 與行為任務</h3>
+		      <span class="recruit-badge">招募中</span>
+		    </div>
+		
+		    <p class="recruit-desc">
+		      研究 taVNS 對內感受（interoception）之影響，包含腦波與心電量測、內感受任務與簡易行為測驗。
+		    </p>
+		
+		    <ul class="recruit-meta">
+		      <li>年齡 20–60</li>
+		      <li>地點：成大醫學院</li>
+		      <li>時長：約 2.5–3 小時</li>
+		      <li>交通補助＋參與謝禮</li>
+		    </ul>
+		
+		    <div class="recruit-actions">
+		      <a class="btn-primary" href="recruitment_tavns_interoception.html">查看詳情</a>
+		      <a class="btn-ghost" href="mailto:q56144034@gs.ncku.edu.tw?subject=%5BBAISP%5D%20%E5%8F%97%E8%A9%A6%E8%80%85%E6%8B%9B%E5%8B%9F%E5%A0%B1%E5%90%8D%20-taVNS%20%E5%85%A7%E6%84%9F%E5%8F%97&body=%E5%A7%93%E5%90%8D%EF%BC%9A%0D%0A%E5%B9%B4%E9%BD%A1%EF%BC%9A%0D%0A%E8%81%AF%E7%B5%A1%E9%9B%BB%E8%A9%B1%EF%BC%9A%0D%0A%E5%8F%AF%E9%85%8D%E5%90%88%E6%99%82%E6%AE%B5%EF%BC%9A%0D%0A%E7%B0%A1%E8%BF%B0%E8%BA%AB%E5%BF%83%E7%8B%80%E6%B3%81%EF%BC%88%E6%98%AF%E5%90%A6%E6%9C%89%E7%A5%9E%E7%B6%93%2F%E7%B2%BE%E7%A5%9E%2F%E5%BF%83%E8%A1%80%E7%AE%A1%E7%9B%B8%E9%97%9C%E7%96%BE%E7%97%85%EF%BC%89%EF%BC%9A%0D%0A">立即報名（Email）</a>
+		    </div>
+		  </article>
+		    <div class="recruit-actions">
+		      <a class="btn-primary" href="recruitment_xxx.html">查看詳情</a>
+		      <a class="btn-ghost" href="mailto:baisp@mail.csie.ncku.edu.tw?subject=%5BBAISP%5D%20%E5%8F%97%E8%A9%A6%E8%80%85%E6%8B%9B%E5%8B%9F%E5%95%8F%E8%A9%A2%20-XXX">詢問（Email）</a>
+		    </div>
+		  </article>
+		
+		</section>
 
-          <h3>💡 實驗內容 / Experiment Description</h3>
-          <p>實驗內容包括腦電圖與心電圖量測、感官刺激任務及簡易行為測驗。全程皆由研究人員陪同，環境安全且舒適。</p>
-
-          <h3>🎁 參與回饋 / Compensation</h3>
-          <p>完成實驗者可獲得交通補助與參與謝禮。</p>
-
-          <h3>📞 聯絡方式 / Contact</h3>
-          <p>
-            若有興趣參與，請寄信至：<br>
-            <a href="mailto:q56144034@gs.ncku.edu.tw">q56144034@gs.ncku.edu.tw</a><br>
-          </p>
-        </section>
       </div>
     </div>
 
