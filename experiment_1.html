@@ -1,0 +1,323 @@
+<!DOCTYPE HTML>
+<!--
+  BAISP Lab Website - Recruitment Detail (taVNS Interoception)
+-->
+<html>
+<head>
+  <title>taVNS 受試者招募 | BAISP Lab</title>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+  <link rel="stylesheet" href="assets/css/main.css" />
+
+  <style>
+    /* Page title */
+    .major h2 {
+      text-align: center;
+      margin-bottom: .25rem;
+    }
+    .subtitle {
+      text-align: center;
+      color: #666;
+      font-size: .95rem;
+      margin-bottom: 1.5rem;
+    }
+
+    /* Layout */
+    .detail-wrap {
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+
+    /* Top actions */
+    .top-actions {
+      display: flex;
+      justify-content: center;
+      gap: .6rem;
+      flex-wrap: wrap;
+      margin: 0 0 1rem;
+    }
+
+    /* Card */
+    .detail-card {
+      background: #fff;
+      border: 1px solid rgba(0,0,0,.08);
+      border-radius: 14px;
+      padding: 1.75rem 2rem;
+      box-shadow: 0 8px 22px rgba(0,0,0,.06);
+      line-height: 1.9;
+      color: #333;
+      font-size: 1.05rem;
+    }
+
+    .detail-card h3 {
+      margin-top: 1.5rem;
+      margin-bottom: .65rem;
+      color: #0f172a;
+      font-weight: 800;
+      font-size: 1.15rem;
+    }
+
+    .detail-card p { margin: .4rem 0; }
+
+    .detail-card ul {
+      list-style-type: "• ";
+      padding-left: 1.25rem;
+      margin: .5rem 0 0;
+    }
+    .detail-card li { margin-bottom: .35rem; }
+
+    /* Info chips */
+    .meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: .5rem .75rem;
+      margin: .9rem 0 0;
+      padding: 0;
+      list-style: none;
+      color: #475569;
+      font-size: .95rem;
+    }
+    .meta li {
+      display: inline-flex;
+      align-items: center;
+      gap: .4rem;
+      padding: .2rem .55rem;
+      border-radius: 10px;
+      background: rgba(0,0,0,.03);
+      border: 1px solid rgba(0,0,0,.06);
+    }
+
+    /* Figure */
+    .flow-figure {
+      margin-top: 1rem;
+      border: 1px solid rgba(0,0,0,.08);
+      border-radius: 14px;
+      padding: .9rem;
+      background: rgba(0,0,0,.02);
+    }
+    .flow-figure img {
+      width: 100%;
+      height: auto;
+      border-radius: 10px;
+      display: block;
+    }
+    .flow-caption {
+      margin-top: .65rem;
+      color: #64748b;
+      font-size: .92rem;
+      line-height: 1.6;
+    }
+
+    /* Buttons */
+    .btn-primary, .btn-ghost {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: .55rem .95rem;
+      border-radius: 10px;
+      font-weight: 800;
+      text-decoration: none;
+      font-size: .95rem;
+      border: 1px solid rgba(0,0,0,.08);
+    }
+    .btn-primary {
+      background-color: #003366;
+      color: #fff !important;
+    }
+    .btn-primary:hover { background-color: #0059b3; }
+
+    .btn-ghost {
+      background: rgba(0,0,0,.03);
+      color: #0f172a !important;
+      border: 1px solid rgba(0,0,0,.10);
+    }
+    .btn-ghost:hover { background: rgba(0,0,0,.06); }
+
+    /* CTA block */
+    .cta {
+      margin-top: 1.4rem;
+      padding-top: 1.1rem;
+      border-top: 1px solid rgba(0,0,0,.08);
+    }
+    .cta p { margin: .35rem 0; }
+
+    @media (max-width: 736px) {
+      .detail-wrap { max-width: 100%; }
+      .detail-card { padding: 1.25rem 1.15rem; }
+    }
+  </style>
+</head>
+
+<body class="homepage is-preload">
+  <div id="page-wrapper">
+
+    <!-- Header -->
+    <div id="header-wrapper">
+      <!-- Hero -->
+      <section id="hero" class="container">
+        <header>
+          <h2>BAISP Lab</h2>
+        </header>
+        <p>Biomedical Artificial Intelligence and Signal Processing Lab</p>
+        <p>智慧生醫與訊號處理實驗室</p>
+      </section>
+
+      <div id="header" class="container">
+        <!-- Nav -->
+        <nav id="nav">
+          <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="news.html">News</a></li>
+            <li><a href="members.html">Members</a></li>
+            <li><a href="research.html">Research</a></li>
+            <li><a href="recruitment.html">Recruitment</a></li>
+            <li><a href="course.html">Course</a></li>
+            <li><a href="forlab.html">For Lab</a></li>
+          </ul>
+        </nav>
+      </div>
+    </div>
+
+    <!-- Main -->
+    <div class="wrapper">
+      <div class="container">
+        <header class="major">
+          <h2>taVNS 受試者招募（EEG / ECG 與心跳感知任務）</h2>
+          <div class="subtitle">非侵入式耳部刺激 × 腦波/心電量測，了解內感受（interoception）與大腦–身體訊號的關係</div>
+        </header>
+
+        <div class="detail-wrap">
+          <div class="top-actions">
+            <a class="btn-ghost" href="recruitment.html">返回招募列表</a>
+            <a class="btn-primary" href="mailto:q56144034@gs.ncku.edu.tw?subject=%5BBAISP%5D%20%E5%8F%97%E8%A9%A6%E8%80%85%E6%8B%9B%E5%8B%9F%E5%A0%B1%E5%90%8D%20-taVNS%20%E5%85%A7%E6%84%9F%E5%8F%97&body=%E5%A7%93%E5%90%8D%EF%BC%9A%0D%0A%E5%B9%B4%E9%BD%A1%EF%BC%9A%0D%0A%E8%81%AF%E7%B5%A1%E9%9B%BB%E8%A9%B1%EF%BC%9A%0D%0A%E5%8F%AF%E9%85%8D%E5%90%88%E6%99%82%E6%AE%B5%EF%BC%9A%0D%0A%E7%B0%A1%E8%BF%B0%E8%BA%AB%E5%BF%83%E7%8B%80%E6%B3%81%EF%BC%88%E6%98%AF%E5%90%A6%E6%9C%89%E7%A5%9E%E7%B6%93%2F%E7%B2%BE%E7%A5%9E%2F%E5%BF%83%E8%A1%80%E7%AE%A1%E7%9B%B8%E9%97%9C%E7%96%BE%E7%97%85%EF%BC%89%EF%BC%9A%0D%0A">我要報名（Email）</a>
+          </div>
+
+          <section class="detail-card">
+            <!-- Quick meta -->
+            <ul class="meta">
+              <li>年齡：20–60</li>
+              <li>地點：成功大學醫學院</li>
+              <li>時間：約 2.5–3 小時（單次）</li>
+              <li>回饋：交通補助＋參與謝禮</li>
+            </ul>
+
+            <h3>研究簡介</h3>
+            <p>
+              本研究探討經皮耳迷走神經刺激（taVNS）對內感受（interoception）的影響，
+              透過腦波（EEG）、心電圖（ECG）量測與心跳感知任務，了解大腦與身體訊號的交互關係。
+            </p>
+
+            <h3>受試者資格</h3>
+            <ul>
+              <li>年齡 20–60 歲</li>
+              <li>無神經、精神或心血管相關疾病</li>
+              <li>無長期服用影響自律神經之藥物</li>
+              <li>可配合完成約 2.5–3 小時實驗流程</li>
+            </ul>
+
+            <h3>實驗流程概要</h3>
+            <p>以下為本研究的簡要流程（實際流程以現場研究人員說明為準）：</p>
+
+            <!-- Flow figure placeholder -->
+            <div class="flow-figure">
+              <img src="images/實驗流程圖V2.jpg" alt="Experiment Flow Diagram">
+              <div class="flow-caption">
+                圖：實驗流程圖（示意）。若圖片尚未放置，請將流程圖檔案放至 <code>images/flow_tavns.png</code> 或修改上述路徑。
+              </div>
+            </div>
+
+            <ul>
+              <li>填寫基本問卷與內感受量表</li>
+              <li>進行基準量測（無刺激）</li>
+              <li>進行三種刺激條件（順序隨機）</li>
+              <li>每回合開始前有短暫基準量測；刺激期間完成心跳感知任務</li>
+              <li>回合間安排休息時間，確保身體狀態回復</li>
+              <li>全程由研究人員陪同，實驗結束即可離開</li>
+            </ul>
+
+            <h3>實驗任務說明</h3>
+            <ul>
+              <li><b>心跳感知任務（HCT）</b>：依照指示，在安靜狀態下感受並心中默數心跳次數</li>
+              <li>任務期間不需運動、不需說話，只需依指示專心感受身體狀態</li>
+            </ul>
+
+            <h3>刺激與安全性</h3>
+            <ul>
+              <li>刺激為非侵入式耳部電刺激</li>
+              <li>強度依個人感受調整至「清楚可感知但不疼痛」</li>
+              <li>可能出現輕微刺麻或溫熱感；若不適可隨時告知並停止</li>
+            </ul>
+
+            <div class="cta">
+              <h3>參與回饋與權益</h3>
+              <ul>
+                <li>完成實驗可獲得交通補助與參與謝禮</li>
+                <li>研究資料將以匿名方式處理，僅用於學術研究</li>
+                <li>參與完全自願，可於任何時間退出，不影響任何權益</li>
+              </ul>
+
+              <h3>報名方式</h3>
+              <p>若您有興趣參與或想了解更多資訊，請來信聯絡：</p>
+              <p>
+                📧 <a href="mailto:q56144034@gs.ncku.edu.tw">q56144034@gs.ncku.edu.tw</a>
+              </p>
+              <p>信件中請簡要提供：姓名、年齡、聯絡方式、可配合實驗時段。</p>
+            </div>
+          </section>
+        </div>
+      </div>
+    </div>
+
+    <!-- Footer -->
+    <div id="footer-wrapper">
+      <div id="footer" class="container">
+        <header class="major">
+          <h2>聯絡我們 (Contact Us)</h2>
+        </header>
+        <div class="row">
+          <section class="col-12">
+            <div class="row gtr-0">
+              <ul class="divided icons col-4 col-12-mobile">
+                <li class="icon solid fa-envelope">
+                  <a href="mailto:baisp@mail.csie.ncku.edu.tw" class="inline">
+                    <span class="extra">Email: </span>baisp@mail.csie.ncku.edu.tw
+                  </a>
+                </li>
+              </ul>
+              <ul class="divided icons col-4 col-12-mobile">
+                <li class="icon solid fa-phone">
+                  <a href="tel:+8866275757562561" class="inline">
+                    <span class="extra">Phone: </span>06-2757575 ext 62530 ext 2903
+                  </a>
+                </li>
+              </ul>
+              <ul class="divided icons col-4 col-12-mobile">
+                <li class="icon solid fa-map-marker-alt">
+                  <a href="https://maps.app.goo.gl/37TF1A17hMm7oUsn6" target="_blank">
+                    <span class="extra">Address: </span>成功大學成功校區資訊新館 65903
+                  </a>
+                </li>
+              </ul>
+            </div>
+          </section>
+        </div>
+      </div>
+      <div id="copyright" class="container">
+        <ul class="menu">
+          <li>&copy; BAISP Lab. All rights reserved.</li>
+          <li>Design: <a href="http://html5up.net">HTML5 UP</a></li>
+        </ul>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- Scripts -->
+  <script src="assets/js/jquery.min.js"></script>
+  <script src="assets/js/jquery.dropotron.min.js"></script>
+  <script src="assets/js/browser.min.js"></script>
+  <script src="assets/js/breakpoints.min.js"></script>
+  <script src="assets/js/util.js"></script>
+  <script src="assets/js/main.js"></script>
+</body>
+</html>
