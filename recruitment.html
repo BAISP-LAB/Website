@@ -10,132 +10,174 @@
   <link rel="stylesheet" href="assets/css/main.css" />
 
 	  <style>
-	  /* 主要標題樣式 */
-	  .major h2 {
-	    text-align: center;
-	    margin-bottom: .25rem;
-	  }
-	  .subtitle {
-	    text-align: center;
-	    color: #666;
-	    font-size: .95rem;
-	    margin-bottom: 1.5rem;
-	  }
-	
-	  /* 列表容器：不要太寬、不要太厚重 */
-	  .recruit-list {
-	    max-width: 1100px;
-	    margin: 0 auto;
-	    display: grid;
-	    gap: 1rem;
-	  }
-	
-	  /* 單筆招募卡片：更薄、更像「一條」 */
-	  .recruit-card {
-	    background: #fff;
-	    border: 1px solid rgba(0,0,0,.08);
-	    border-radius: 14px;
-	    padding: 1.1rem 1.25rem;
-	    box-shadow: 0 6px 18px rgba(0,0,0,.05);
-	  }
-	
-	  .recruit-card-header {
-	    display: flex;
-	    align-items: flex-start;
-	    justify-content: space-between;
-	    gap: .75rem;
-	    margin-bottom: .35rem;
-	  }
-	
-	  .recruit-title {
-	    margin: 0;
-	    font-size: 1.15rem;
-	    font-weight: 800;
-	    color: #0f172a;
-	    line-height: 1.35;
-	  }
-	
-	  /* 狀態/標籤（可選） */
-	  .recruit-badge {
-	    flex: 0 0 auto;
-	    font-size: .85rem;
-	    padding: .2rem .6rem;
-	    border-radius: 999px;
-	    background: rgba(0,51,102,.10);
-	    color: #003366;
-	    border: 1px solid rgba(0,51,102,.18);
-	    font-weight: 700;
-	    white-space: nowrap;
-	  }
-	
-	  /* 精簡描述 */
-	  .recruit-desc {
-	    margin: .25rem 0 .8rem;
-	    color: #334155;
-	    line-height: 1.7;
-	    font-size: 1.0rem;
-	  }
-	
-	  /* 一行式 meta 資訊（地點/時長/補助等） */
-	  .recruit-meta {
-	    display: flex;
-	    flex-wrap: wrap;
-	    gap: .5rem .75rem;
-	    margin: 0 0 .85rem;
-	    padding: 0;
-	    list-style: none;
-	    color: #475569;
-	    font-size: .95rem;
-	  }
-	  .recruit-meta li {
-	    display: inline-flex;
-	    align-items: center;
-	    gap: .4rem;
-	    padding: .2rem .55rem;
-	    border-radius: 10px;
-	    background: rgba(0,0,0,.03);
-	    border: 1px solid rgba(0,0,0,.06);
-	  }
-	
-	  /* CTA */
-	  .recruit-actions {
-	    display: flex;
-	    gap: .6rem;
-	    flex-wrap: wrap;
-	  }
-	  .btn-primary {
-	    display: inline-block;
-	    padding: .55rem 1rem;
-	    background-color: #003366;
-	    color: #fff !important;
-	    border-radius: 10px;
-	    font-weight: 700;
-	    text-decoration: none;
-	    transition: background .25s ease;
-	    font-size: .95rem;
-	  }
-	  .btn-primary:hover { background-color: #0059b3; }
-	
-	  .btn-ghost {
-	    display: inline-block;
-	    padding: .55rem 1rem;
-	    background: transparent;
-	    color: #003366 !important;
-	    border: 1px solid rgba(0,51,102,.35);
-	    border-radius: 10px;
-	    font-weight: 700;
-	    text-decoration: none;
-	    transition: background .25s ease;
-	    font-size: .95rem;
-	  }
-	  .btn-ghost:hover { background: rgba(0,51,102,.06); }
-	
-	  /* 小螢幕稍微縮一下 padding */
-	  @media (max-width: 736px) {
-	    .recruit-card { padding: 1rem 1rem; }
-	    .recruit-title { font-size: 1.05rem; }
-	  }
-	</style>
+		  body {
+		    color: #1e293b;
+		    font-weight: 400;
+		    line-height: 1.75;
+		    -webkit-font-smoothing: antialiased;
+		    -moz-osx-font-smoothing: grayscale;
+		  }
+		
+		  /* 主要標題樣式 */
+		  .major h2 {
+		    text-align: center;
+		    margin-bottom: 0.35rem;
+		    color: #0f172a;
+		    font-weight: 800;
+		    letter-spacing: 0.02em;
+		  }
+		
+		  .subtitle {
+		    text-align: center;
+		    color: #475569;
+		    font-size: 1rem;
+		    margin-bottom: 2rem;
+		    line-height: 1.7;
+		  }
+		
+		  /* 外層區塊左右留白 */
+		  .wrapper .container {
+		    padding-left: 1.25rem;
+		    padding-right: 1.25rem;
+		  }
+		
+		  /* 列表容器 */
+		  .recruit-list {
+		    max-width: 900px;
+		    margin: 0 auto;
+		    display: grid;
+		    gap: 1.25rem;
+		    padding: 0 1rem;
+		  }
+		
+		  /* 單筆招募卡片 */
+		  .recruit-card {
+		    background: #ffffff;
+		    border: 1px solid rgba(15, 23, 42, 0.08);
+		    border-radius: 16px;
+		    padding: 1.4rem 1.5rem;
+		    box-shadow: 0 8px 24px rgba(15, 23, 42, 0.05);
+		  }
+		
+		  .recruit-card-header {
+		    display: flex;
+		    align-items: flex-start;
+		    justify-content: space-between;
+		    gap: 0.75rem;
+		    margin-bottom: 0.5rem;
+		  }
+		
+		  .recruit-title {
+		    margin: 0;
+		    font-size: 1.2rem;
+		    font-weight: 800;
+		    color: #0f172a;
+		    line-height: 1.45;
+		    letter-spacing: 0.01em;
+		  }
+		
+		  .recruit-badge {
+		    flex: 0 0 auto;
+		    font-size: 0.85rem;
+		    padding: 0.25rem 0.65rem;
+		    border-radius: 999px;
+		    background: rgba(0, 51, 102, 0.1);
+		    color: #003366;
+		    border: 1px solid rgba(0, 51, 102, 0.18);
+		    font-weight: 700;
+		    white-space: nowrap;
+		  }
+		
+		  .recruit-desc {
+		    margin: 0.4rem 0 1rem;
+		    color: #334155;
+		    line-height: 1.8;
+		    font-size: 1rem;
+		    font-weight: 400;
+		  }
+		
+		  .recruit-meta {
+		    display: flex;
+		    flex-wrap: wrap;
+		    gap: 0.65rem 0.8rem;
+		    margin: 0 0 1rem;
+		    padding: 0;
+		    list-style: none;
+		    color: #334155;
+		    font-size: 0.95rem;
+		  }
+		
+		  .recruit-meta li {
+		    display: inline-flex;
+		    align-items: center;
+		    gap: 0.4rem;
+		    padding: 0.35rem 0.7rem;
+		    border-radius: 10px;
+		    background: #f8fafc;
+		    border: 1px solid #e2e8f0;
+		    font-weight: 500;
+		  }
+		
+		  .recruit-actions {
+		    display: flex;
+		    gap: 0.6rem;
+		    flex-wrap: wrap;
+		    margin-top: 0.2rem;
+		  }
+		
+		  .btn-primary,
+		  .btn-ghost {
+		    display: inline-block;
+		    padding: 0.6rem 1.05rem;
+		    border-radius: 10px;
+		    font-weight: 700;
+		    font-size: 0.95rem;
+		    text-decoration: none;
+		    transition: all 0.25s ease;
+		  }
+		
+		  .btn-primary {
+		    background-color: #003366;
+		    color: #fff !important;
+		  }
+		
+		  .btn-primary:hover {
+		    background-color: #0059b3;
+		  }
+		
+		  .btn-ghost {
+		    background: transparent;
+		    color: #003366 !important;
+		    border: 1px solid rgba(0, 51, 102, 0.35);
+		  }
+		
+		  .btn-ghost:hover {
+		    background: rgba(0, 51, 102, 0.06);
+		  }
+		
+		  @media (max-width: 736px) {
+		    .wrapper .container {
+		      padding-left: 0.9rem;
+		      padding-right: 0.9rem;
+		    }
+		
+		    .recruit-list {
+		      padding: 0;
+		    }
+		
+		    .recruit-card {
+		      padding: 1rem 1rem;
+		    }
+		
+		    .recruit-title {
+		      font-size: 1.05rem;
+		    }
+		
+		    .subtitle {
+		      font-size: 0.95rem;
+		    }
+		  }
+</style>
 </head>
 
 <body class="homepage is-preload">
@@ -199,7 +241,8 @@
 		    <div class="recruit-actions">
 		      <a class="btn-primary" href="experiment_1.html">查看詳情</a>
 		      <a class="btn-ghost" href="https://forms.gle/jMc9V5gM4K2FASme9">立即報名</a>
-		    </div>	
+		    </div>
+		  </article>
 		</section>
 
       </div>
