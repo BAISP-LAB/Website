@@ -13,18 +13,23 @@
     /* Page title */
     .major h2 {
       text-align: center;
-      margin-bottom: .25rem;
+      margin-bottom: .3rem;
+      color: #111827;
+      font-weight: 700;
+      letter-spacing: 0.01em;
     }
+
     .subtitle {
       text-align: center;
-      color: #666;
-      font-size: .95rem;
-      margin-bottom: 1.5rem;
+      color: #475569;
+      font-size: .98rem;
+      line-height: 1.7;
+      margin-bottom: 1.75rem;
     }
 
     /* Layout */
     .detail-wrap {
-      max-width: 1100px;
+      max-width: 980px;
       margin: 0 auto;
     }
 
@@ -32,118 +37,89 @@
     .top-actions {
       display: flex;
       justify-content: center;
-      gap: .6rem;
+      gap: .75rem;
       flex-wrap: wrap;
-      margin: 0 0 1rem;
+      margin: 0 0 1.2rem;
     }
 
     /* Card */
     .detail-card {
       background: #fff;
       border: 1px solid rgba(0,0,0,.08);
-      border-radius: 14px;
-      padding: 1.75rem 2rem;
+      border-radius: 16px;
+      padding: 1rem;
       box-shadow: 0 8px 22px rgba(0,0,0,.06);
-      line-height: 1.9;
-      color: #333;
-      font-size: 1.05rem;
     }
 
-    .detail-card h3 {
-      margin-top: 1.5rem;
-      margin-bottom: .65rem;
-      color: #0f172a;
-      font-weight: 800;
-      font-size: 1.15rem;
-    }
-
-    .detail-card p { margin: .4rem 0; }
-
-    .detail-card ul {
-      list-style-type: "• ";
-      padding-left: 1.25rem;
-      margin: .5rem 0 0;
-    }
-    .detail-card li { margin-bottom: .35rem; }
-
-    /* Info chips */
-    .meta {
-      display: flex;
-      flex-wrap: wrap;
-      gap: .5rem .75rem;
-      margin: .9rem 0 0;
-      padding: 0;
-      list-style: none;
-      color: #475569;
-      font-size: .95rem;
-    }
-    .meta li {
-      display: inline-flex;
-      align-items: center;
-      gap: .4rem;
-      padding: .2rem .55rem;
-      border-radius: 10px;
-      background: rgba(0,0,0,.03);
-      border: 1px solid rgba(0,0,0,.06);
-    }
-
-    /* Figure */
-    .flow-figure {
-      margin-top: 1rem;
-      border: 1px solid rgba(0,0,0,.08);
-      border-radius: 14px;
-      padding: .9rem;
-      background: rgba(0,0,0,.02);
-    }
-    .flow-figure img {
-      width: 100%;
-      height: auto;
-      border-radius: 10px;
+    /* Flyer image */
+    .flyer-link {
       display: block;
+      text-decoration: none;
+      border: 0;
     }
-    .flow-caption {
-      margin-top: .65rem;
-      color: #64748b;
-      font-size: .92rem;
-      line-height: 1.6;
+
+    .recruit-flyer {
+      display: block;
+      width: 100%;
+      max-width: 820px;
+      height: auto;
+      margin: 0 auto;
+      border-radius: 12px;
+      box-shadow: 0 8px 24px rgba(0,0,0,.08);
     }
 
     /* Buttons */
-    .btn-primary, .btn-ghost {
+    .btn-primary,
+    .btn-ghost {
       display: inline-flex;
       align-items: center;
       justify-content: center;
-      padding: .55rem .95rem;
+      padding: .58rem 1rem;
       border-radius: 10px;
       font-weight: 800;
       text-decoration: none;
       font-size: .95rem;
       border: 1px solid rgba(0,0,0,.08);
+      transition: all .25s ease;
     }
+
     .btn-primary {
       background-color: #003366;
       color: #fff !important;
     }
-    .btn-primary:hover { background-color: #0059b3; }
+
+    .btn-primary:hover {
+      background-color: #0059b3;
+    }
 
     .btn-ghost {
       background: rgba(0,0,0,.03);
-      color: #0f172a !important;
+      color: #111827 !important;
       border: 1px solid rgba(0,0,0,.10);
     }
-    .btn-ghost:hover { background: rgba(0,0,0,.06); }
 
-    /* CTA block */
-    .cta {
-      margin-top: 1.4rem;
-      padding-top: 1.1rem;
-      border-top: 1px solid rgba(0,0,0,.08);
+    .btn-ghost:hover {
+      background: rgba(0,0,0,.06);
     }
-    .cta p { margin: .35rem 0; }
 
     @media (max-width: 736px) {
-      .detail-wrap { max-width: 100%; }
-      .detail-card { padding: 1.25rem 1.15rem; }
+      .detail-wrap {
+        max-width: 100%;
+      }
+
+      .detail-card {
+        padding: .75rem;
+      }
+
+      .subtitle {
+        font-size: .94rem;
+        margin-bottom: 1.25rem;
+      }
+
+      .recruit-flyer {
+        max-width: 100%;
+        border-radius: 10px;
+      }
     }
   </style>
 </head>
@@ -183,81 +159,25 @@
       <div class="container">
         <header class="major">
           <h2>taVNS 受試者招募（EEG / ECG 與心跳感知任務）</h2>
-          <div class="subtitle">非侵入式耳部刺激 × 腦波/心電量測，了解內感受（interoception）與大腦–身體訊號的關係</div>
+          <div class="subtitle">
+            非侵入式耳部刺激 × 腦波 / 心電量測，歡迎點擊下方文宣查看完整招募資訊
+          </div>
         </header>
 
         <div class="detail-wrap">
           <div class="top-actions">
             <a class="btn-ghost" href="recruitment.html">返回招募列表</a>
-            <a class="btn-primary" href="https://forms.gle/Bof56i6kU8UbpwNw9">我要報名</a>
+            <a class="btn-primary" href="https://forms.gle/Bof56i6kU8UbpwNw9" target="_blank">我要報名</a>
           </div>
 
           <section class="detail-card">
-            <!-- Quick meta -->
-            <ul class="meta">
-              <li>年齡：≧18歲之成人</li>
-              <li>地點：成大智慧生醫與訊號處理實驗室</li>
-              <li>時間：約 1.5–2 小時</li>
-              <li>回饋：交通補助300元</li>
-            </ul>
-
-            <h3>研究簡介</h3>
-            <p>
-              本研究探討經皮耳迷走神經刺激（taVNS）對內感受（interoception）的影響，
-              透過腦波（EEG）、心電圖（ECG）量測與心跳感知任務，了解大腦與身體訊號的交互關係。
-            </p>
-
-            <h3>受試者資格</h3>
-            <ul>
-              <li>年齡≧18歲之成人</li>
-              <li>無精神疾病、情緒障礙或重大身心健康問題之相關就醫紀錄</li>
-              <li>無自覺之聽力障礙或溝通障礙</li>
-              <li>可配合完成約 1.5–2 小時實驗流程</li>
-            </ul>
-
-            <h3>實驗流程概要</h3>
-            <p>以下為本研究的簡要流程：</p>
-            <ul>
-              <li>1. 研究說明與知情同意：由研究人員向參與者說明研究流程、可能風險與相關權益，並於取得書面知情同意後，始進行後續研究活動。</li>
-              <li>2. 基本資料與健康狀況填寫：參與者需填寫個人基本資料（如年齡、性別）及健康篩選相關問項，用以確認是否符合研究之納入與排除條件。）</li>
-              <li>3. 問卷填寫：參與者將填寫內感受相關問卷（如 MAIA-2），作為主觀內感受評估指標。</li>
-              <li>4. 生理訊號量測：研究人員將為參與者配戴腦波（EEG）與心電圖（ECG）電極，進行非侵入性之生理訊號量測。</li>
-              <li>5. 刺激前基準量測（baseline）：包含靜息態 EEG／ECG 量測及心跳計數任務（heartbeat counting task, HCT），以取得刺激介入前之基準狀態。</li>
-              <li>6. 經皮耳迷走神經刺激（taVNS）實驗：參與者將接受三種不同刺激參數條件之耳部非侵入性電刺激，各刺激條件之呈現順序將以隨機方式安排。</li>
-              <li>7. 刺激後內感受評估：於各刺激條件後，重複進行心跳計數任務（HCT），以評估不同刺激條件對內感受表現之影響。</li>
-              <li>8. 實驗結束與補償說明：實驗結束後提供研究補償，並說明後續聯絡方式。</li>
-            </ul>
-
-            <h3>實驗任務說明</h3>
-            <ul>
-              <li><b>心跳感知任務（HCT）</b>：依照指示，在安靜狀態下感受並心中默數心跳次數</li>
-              <li>任務期間不需運動、不需說話，只需依指示專心感受身體狀態</li>
-            </ul>
-
-            <h3>刺激與安全性</h3>
-            <ul>
-              <li>刺激為非侵入式耳部電刺激</li>
-              <li>強度依個人感受調整至「清楚可感知但不疼痛」</li>
-              <li>可能出現輕微刺麻或溫熱感；若不適可隨時告知並停止</li>
-            </ul>
-
-            <div class="cta">
-              <h3>參與回饋與權益</h3>
-              <ul>
-                <li>完成實驗可獲得交通補助與參與謝禮</li>
-                <li>研究資料將以匿名方式處理，僅用於學術研究</li>
-                <li>參與完全自願，可於任何時間退出，不影響任何權益</li>
-              </ul>
-
-              <h3>報名方式</h3>
-              <p>1.點擊上方"立即報名"，並完整填寫表單送出</p>
-              <p>2.若您有興趣參與或想了解更多資訊，請來信聯絡：</p>
-              <p>
-                📧 <a href="mailto:q56144034@gs.ncku.edu.tw">q56144034@gs.ncku.edu.tw</a>
-              </p>
-              <p>信件中請簡要提供：姓名、年齡、聯絡方式、可配合實驗時段。</p>
-              
-            </div>
+            <a class="flyer-link" href="images/招募文宣第一年.jpg" target="_blank">
+              <img
+                src="images/招募文宣第一年.jpg"
+                alt="taVNS 受試者招募文宣"
+                class="recruit-flyer"
+              />
+            </a>
           </section>
         </div>
       </div>
@@ -297,6 +217,7 @@
           </section>
         </div>
       </div>
+
       <div id="copyright" class="container">
         <ul class="menu">
           <li>&copy; BAISP Lab. All rights reserved.</li>
