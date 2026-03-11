@@ -3,230 +3,236 @@
   BAISP Lab Website - Recruitment Detail (taVNS Interoception)
 -->
 <html>
-  <head>
-    <title>taVNS 受試者招募 | BAISP Lab</title>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
-    <link rel="stylesheet" href="assets/css/main.css" />
+<head>
+  <title>taVNS 受試者招募 | BAISP Lab</title>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+  <link rel="stylesheet" href="assets/css/main.css" />
 
-    <style>
-      /* Page title */
-      .major h2 {
-        text-align: center;
-        margin-bottom: .3rem;
-        color: #111827;
-        font-weight: 700;
+  <style>
+    /* Page title */
+    .major h2 {
+      text-align: center;
+      margin-bottom: .3rem;
+      color: #111827;
+      font-weight: 700;
+      letter-spacing: 0.01em;
+    }
+
+    .subtitle {
+      text-align: center;
+      color: #475569;
+      font-size: .98rem;
+      line-height: 1.7;
+      margin-bottom: 1.75rem;
+    }
+
+    /* Layout */
+    .detail-wrap {
+      max-width: 980px;
+      margin: 0 auto;
+    }
+
+    /* Top actions */
+    .top-actions {
+      display: flex;
+      justify-content: center;
+      gap: .75rem;
+      flex-wrap: wrap;
+      margin: 0 0 1.2rem;
+    }
+
+    /* Card */
+    .detail-card {
+      background: #fff;
+      border: 1px solid rgba(0,0,0,.08);
+      border-radius: 16px;
+      padding: 1rem;
+      box-shadow: 0 8px 22px rgba(0,0,0,.06);
+    }
+
+    /* Flyer image */
+    .flyer-link {
+      display: block;
+      text-decoration: none;
+      border: 0;
+    }
+
+    .recruit-flyer {
+      display: block;
+      width: 100%;
+      max-width: 820px;
+      height: auto;
+      margin: 0 auto;
+      border-radius: 12px;
+      box-shadow: 0 8px 24px rgba(0,0,0,.08);
+    }
+
+    /* Buttons */
+    .btn-primary,
+    .btn-ghost {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: .58rem 1rem;
+      border-radius: 10px;
+      font-weight: 800;
+      text-decoration: none;
+      font-size: .95rem;
+      border: 1px solid rgba(0,0,0,.08);
+      transition: all .25s ease;
+    }
+
+    .btn-primary {
+      background-color: #003366;
+      color: #fff !important;
+    }
+
+    .btn-primary:hover {
+      background-color: #0059b3;
+    }
+
+    .btn-ghost {
+      background: rgba(0,0,0,.03);
+      color: #111827 !important;
+      border: 1px solid rgba(0,0,0,.10);
+    }
+
+    .btn-ghost:hover {
+      background: rgba(0,0,0,.06);
+    }
+
+    @media (max-width: 736px) {
+      .detail-wrap {
+        max-width: 100%;
+      }
+
+      .detail-card {
+        padding: .75rem;
       }
 
       .subtitle {
-        text-align: center;
-        color: #475569;
-        font-size: .98rem;
-        margin-bottom: 1.75rem;
-        line-height: 1.7;
+        font-size: .94rem;
+        margin-bottom: 1.25rem;
       }
 
-      /* Layout */
-      .detail-wrap {
-        max-width: 950px;
-        margin: 0 auto;
-        text-align: center;
-      }
-
-      /* Top actions */
-      .top-actions {
-        display: flex;
-        justify-content: center;
-        gap: .75rem;
-        flex-wrap: wrap;
-        margin: 0 0 1.5rem;
-      }
-
-      /* Recruitment flyer */
       .recruit-flyer {
-        width: 100%;
-        max-width: 700px;
-        height: auto;
-        display: block;
-        margin: 0 auto;
-      }
-
-      /* Buttons */
-      .btn-primary,
-      .btn-ghost {
-        display: inline-flex;
-        align-items: center;
-        justify-content: center;
-        padding: .58rem 1rem;
+        max-width: 100%;
         border-radius: 10px;
-        font-weight: 800;
-        text-decoration: none;
-        font-size: .95rem;
-        border: 1px solid rgba(0,0,0,.08);
-        transition: all .25s ease;
       }
+    }
+  </style>
+</head>
 
-      .btn-primary {
-        background-color: #003366;
-        color: #fff !important;
-      }
+<body class="homepage is-preload">
+  <div id="page-wrapper">
 
-      .btn-primary:hover {
-        background-color: #0059b3;
-      }
+    <!-- Header -->
+    <div id="header-wrapper">
+      <!-- Hero -->
+      <section id="hero" class="container">
+        <header>
+          <h2>BAISP Lab</h2>
+        </header>
+        <p>Biomedical Artificial Intelligence and Signal Processing Lab</p>
+        <p>智慧生醫與訊號處理實驗室</p>
+      </section>
 
-      .btn-ghost {
-        background: rgba(0,0,0,.03);
-        color: #111827 !important;
-        border: 1px solid rgba(0,0,0,.10);
-      }
-
-      .btn-ghost:hover {
-        background: rgba(0,0,0,.06);
-      }
-
-      @media (max-width: 736px) {
-        .detail-wrap {
-          max-width: 100%;
-        }
-
-        .subtitle {
-          font-size: .94rem;
-        }
-
-        .recruit-flyer {
-          max-width: 100%;
-        }
-      }
-    </style>
-  </head>
-
-  <body class="homepage is-preload">
-    <div id="page-wrapper">
-
-      <!-- Header -->
-      <div id="header-wrapper">
-
-        <!-- Hero -->
-        <section id="hero" class="container">
-          <header>
-            <h2>BAISP Lab</h2>
-          </header>
-          <p>Biomedical Artificial Intelligence and Signal Processing Lab</p>
-          <p>智慧生醫與訊號處理實驗室</p>
-        </section>
-
-        <!-- Navigation -->
-        <div id="header" class="container">
-          <nav id="nav">
-            <ul>
-              <li><a href="index.html">Home</a></li>
-              <li><a href="news.html">News</a></li>
-              <li><a href="members.html">Members</a></li>
-              <li><a href="research.html">Research</a></li>
-              <li><a href="recruitment.html">Recruitment</a></li>
-              <li><a href="course.html">Course</a></li>
-              <li><a href="forlab.html">For Lab</a></li>
-            </ul>
-          </nav>
-        </div>
-
-      </div>
-
-      <!-- Main -->
-      <div class="wrapper">
-        <div class="container">
-
-          <header class="major">
-            <h2>taVNS 受試者招募（EEG / ECG 與心跳感知任務）</h2>
-            <div class="subtitle">
-              非侵入式耳部刺激 × 腦波 / 心電量測
-            </div>
-          </header>
-
-          <div class="detail-wrap">
-
-            <div class="top-actions">
-              <a class="btn-ghost" href="recruitment.html">返回招募列表</a>
-              <a class="btn-primary" href="https://forms.gle/Bof56i6kU8UbpwNw9" target="_blank">
-                我要報名
-              </a>
-            </div>
-
-            <img
-              src="images/taVNS招募文宣第一年.jpg"
-              alt="taVNS 受試者招募文宣"
-              class="recruit-flyer"
-            />
-
-          </div>
-
-        </div>
-      </div>
-
-      <!-- Footer -->
-      <div id="footer-wrapper">
-        <div id="footer" class="container">
-
-          <header class="major">
-            <h2>聯絡我們 (Contact Us)</h2>
-          </header>
-
-          <div class="row">
-            <section class="col-12">
-              <div class="row gtr-0">
-
-                <ul class="divided icons col-4 col-12-mobile">
-                  <li class="icon solid fa-envelope">
-                    <a href="mailto:baisp@mail.csie.ncku.edu.tw" class="inline">
-                      <span class="extra">Email: </span>
-                      baisp@mail.csie.ncku.edu.tw
-                    </a>
-                  </li>
-                </ul>
-
-                <ul class="divided icons col-4 col-12-mobile">
-                  <li class="icon solid fa-phone">
-                    <a href="tel:+8866275757562561" class="inline">
-                      <span class="extra">Phone: </span>
-                      06-2757575 ext 62530 ext 2903
-                    </a>
-                  </li>
-                </ul>
-
-                <ul class="divided icons col-4 col-12-mobile">
-                  <li class="icon solid fa-map-marker-alt">
-                    <a href="https://maps.app.goo.gl/37TF1A17hMm7oUsn6" target="_blank">
-                      <span class="extra">Address: </span>
-                      成功大學成功校區資訊新館 65903
-                    </a>
-                  </li>
-                </ul>
-
-              </div>
-            </section>
-          </div>
-
-        </div>
-
-        <div id="copyright" class="container">
-          <ul class="menu">
-            <li>&copy; BAISP Lab. All rights reserved.</li>
-            <li>Design: <a href="http://html5up.net">HTML5 UP</a></li>
+      <div id="header" class="container">
+        <!-- Nav -->
+        <nav id="nav">
+          <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="news.html">News</a></li>
+            <li><a href="members.html">Members</a></li>
+            <li><a href="research.html">Research</a></li>
+            <li><a href="recruitment.html">Recruitment</a></li>
+            <li><a href="course.html">Course</a></li>
+            <li><a href="forlab.html">For Lab</a></li>
           </ul>
-        </div>
-
+        </nav>
       </div>
-
     </div>
 
-    <!-- Scripts -->
-    <script src="assets/js/jquery.min.js"></script>
-    <script src="assets/js/jquery.dropotron.min.js"></script>
-    <script src="assets/js/browser.min.js"></script>
-    <script src="assets/js/breakpoints.min.js"></script>
-    <script src="assets/js/util.js"></script>
-    <script src="assets/js/main.js"></script>
+    <!-- Main -->
+    <div class="wrapper">
+      <div class="container">
+        <header class="major">
+          <h2>taVNS 受試者招募（EEG / ECG 與心跳感知任務）</h2>
+          <div class="subtitle">
+            非侵入式耳部刺激 × 腦波 / 心電量測
+          </div>
+        </header>
 
-  </body>
+        <div class="detail-wrap">
+          <div class="top-actions">
+            <a class="btn-ghost" href="recruitment.html">返回招募列表</a>
+            <a class="btn-primary" href="https://forms.gle/Bof56i6kU8UbpwNw9" target="_blank">我要報名</a>
+          </div>
+
+          <section class="detail-card">
+            <a class="flyer-link" href="images/recruitment/taVNS_flyer.jpg" target="_blank">
+              <img
+                src="images/taVNS招募文宣第一年.jpg"
+                class="recruit-flyer"
+              />
+            </a>
+          </section>
+        </div>
+      </div>
+    </div>
+
+    <!-- Footer -->
+    <div id="footer-wrapper">
+      <div id="footer" class="container">
+        <header class="major">
+          <h2>聯絡我們 (Contact Us)</h2>
+        </header>
+        <div class="row">
+          <section class="col-12">
+            <div class="row gtr-0">
+              <ul class="divided icons col-4 col-12-mobile">
+                <li class="icon solid fa-envelope">
+                  <a href="mailto:baisp@mail.csie.ncku.edu.tw" class="inline">
+                    <span class="extra">Email: </span>baisp@mail.csie.ncku.edu.tw
+                  </a>
+                </li>
+              </ul>
+              <ul class="divided icons col-4 col-12-mobile">
+                <li class="icon solid fa-phone">
+                  <a href="tel:+8866275757562561" class="inline">
+                    <span class="extra">Phone: </span>06-2757575 ext 62530 ext 2903
+                  </a>
+                </li>
+              </ul>
+              <ul class="divided icons col-4 col-12-mobile">
+                <li class="icon solid fa-map-marker-alt">
+                  <a href="https://maps.app.goo.gl/37TF1A17hMm7oUsn6" target="_blank">
+                    <span class="extra">Address: </span>成功大學成功校區資訊新館 65903
+                  </a>
+                </li>
+              </ul>
+            </div>
+          </section>
+        </div>
+      </div>
+
+      <div id="copyright" class="container">
+        <ul class="menu">
+          <li>&copy; BAISP Lab. All rights reserved.</li>
+          <li>Design: <a href="http://html5up.net">HTML5 UP</a></li>
+        </ul>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- Scripts -->
+  <script src="assets/js/jquery.min.js"></script>
+  <script src="assets/js/jquery.dropotron.min.js"></script>
+  <script src="assets/js/browser.min.js"></script>
+  <script src="assets/js/breakpoints.min.js"></script>
+  <script src="assets/js/util.js"></script>
+  <script src="assets/js/main.js"></script>
+</body>
 </html>
