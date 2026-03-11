@@ -9,175 +9,190 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
   <link rel="stylesheet" href="assets/css/main.css" />
 
-	  <style>
-		  body {
-		    color: #1e293b;
-		    font-weight: 400;
-		    line-height: 1.75;
-		    -webkit-font-smoothing: antialiased;
-		    -moz-osx-font-smoothing: grayscale;
-		  }
-		
-		  /* 主要標題樣式 */
-		  .major h2 {
-		    text-align: center;
-		    margin-bottom: 0.35rem;
-		    color: #111827;
-		    font-weight: 600;
-		    letter-spacing: 0.02em;
-		  }
-		
-		  .subtitle {
-		    text-align: center;
-		    color: #111827;
-		    font-size: 1rem;
-		    margin-bottom: 2rem;
-		    line-height: 1.7;
-		  }
-		
-		  /* 外層區塊左右留白 */
-		  .wrapper .container {
-		    padding-left: 1.25rem;
-		    padding-right: 1.25rem;
-		  }
-		
-		  /* 列表容器 */
-		  .recruit-list {
-		    max-width: 900px;
-		    margin: 0 auto;
-		    display: grid;
-		    gap: 1.25rem;
-		    padding: 0 1rem;
-		  }
-		
-		  /* 單筆招募卡片 */
-		  .recruit-card {
-		    background: #ffffff;
-		    border: 1px solid rgba(15, 23, 42, 0.08);
-		    border-radius: 16px;
-		    padding: 1.4rem 1.5rem;
-		    box-shadow: 0 8px 24px rgba(15, 23, 42, 0.05);
-		  }
-		
-		  .recruit-card-header {
-		    display: flex;
-		    align-items: flex-start;
-		    justify-content: space-between;
-		    gap: 0.75rem;
-		    margin-bottom: 0.5rem;
-		  }
-		
-		  .recruit-title {
-		    margin: 0;
-		    font-size: 1.2rem;
-		    font-weight: 800;
-		    color: #0f172a;
-		    line-height: 1.45;
-		    letter-spacing: 0.01em;
-		  }
-		
-		  .recruit-badge {
-		    flex: 0 0 auto;
-		    font-size: 0.85rem;
-		    padding: 0.25rem 0.65rem;
-		    border-radius: 999px;
-		    background: rgba(0, 51, 102, 0.1);
-		    color: #003366;
-		    border: 1px solid rgba(0, 51, 102, 0.18);
-		    font-weight: 700;
-		    white-space: nowrap;
-		  }
-		
-		  .recruit-desc {
-		    margin: 0.4rem 0 1rem;
-		    color: #334155;
-		    line-height: 1.8;
-		    font-size: 1rem;
-		    font-weight: 400;
-		  }
-		
-		  .recruit-meta {
-		    display: flex;
-		    flex-wrap: wrap;
-		    gap: 0.65rem 0.8rem;
-		    margin: 0 0 1rem;
-		    padding: 0;
-		    list-style: none;
-		    color: #334155;
-		    font-size: 0.95rem;
-		  }
-		
-		  .recruit-meta li {
-		    display: inline-flex;
-		    align-items: center;
-		    gap: 0.4rem;
-		    padding: 0.35rem 0.7rem;
-		    border-radius: 10px;
-		    background: #f8fafc;
-		    border: 1px solid #e2e8f0;
-		    font-weight: 500;
-		  }
-		
-		  .recruit-actions {
-		    display: flex;
-		    gap: 0.6rem;
-		    flex-wrap: wrap;
-		    margin-top: 0.2rem;
-		  }
-		
-		  .btn-primary,
-		  .btn-ghost {
-		    display: inline-block;
-		    padding: 0.6rem 1.05rem;
-		    border-radius: 10px;
-		    font-weight: 700;
-		    font-size: 0.95rem;
-		    text-decoration: none;
-		    transition: all 0.25s ease;
-		  }
-		
-		  .btn-primary {
-		    background-color: #003366;
-		    color: #fff !important;
-		  }
-		
-		  .btn-primary:hover {
-		    background-color: #0059b3;
-		  }
-		
-		  .btn-ghost {
-		    background: transparent;
-		    color: #003366 !important;
-		    border: 1px solid rgba(0, 51, 102, 0.35);
-		  }
-		
-		  .btn-ghost:hover {
-		    background: rgba(0, 51, 102, 0.06);
-		  }
-		
-		  @media (max-width: 736px) {
-		    .wrapper .container {
-		      padding-left: 0.9rem;
-		      padding-right: 0.9rem;
-		    }
-		
-		    .recruit-list {
-		      padding: 0;
-		    }
-		
-		    .recruit-card {
-		      padding: 1rem 1rem;
-		    }
-		
-		    .recruit-title {
-		      font-size: 1.05rem;
-		    }
-		
-		    .subtitle {
-		      font-size: 0.95rem;
-		    }
-		  }
-</style>
+  <!-- ===== Recruitment: Cleaner Layout ===== -->
+  <style>
+    /* 基本排版優化 */
+    body {
+      color: #1f2937;
+      font-weight: 400;
+      line-height: 1.75;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+
+    .wrapper .major h2 {
+      margin-bottom: .25rem;
+      text-align: center;
+      color: #111827;
+      font-weight: 700;
+      letter-spacing: .2px;
+    }
+
+    .subtitle {
+      text-align: center;
+      color: #4b5563;
+      font-size: 1rem;
+      margin-bottom: 2rem;
+      line-height: 1.7;
+    }
+
+    /* 外層留白，和 news 頁面一致感 */
+    .wrapper .container {
+      padding-left: 1.25rem;
+      padding-right: 1.25rem;
+    }
+
+    /* 招募列表 */
+    .recruit-list {
+      max-width: 960px;
+      margin: 0 auto;
+      display: grid;
+      gap: 1.25rem;
+    }
+
+    /* 招募卡片：呼應 news-table 的白底、圓角、陰影 */
+    .recruit-card {
+      background: #fff;
+      border: 1px solid #e5e7eb;
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 4px 16px rgba(0, 0, 0, .06);
+      padding: 1.25rem 1.35rem;
+    }
+
+    .recruit-card-header {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: .75rem;
+      margin-bottom: .5rem;
+    }
+
+    .recruit-title {
+      margin: 0;
+      font-size: 1.05rem;
+      font-weight: 700;
+      color: #0f172a;
+      line-height: 1.55;
+    }
+
+    /* 狀態標籤：從亮眼藍改成低調灰藍 */
+    .recruit-badge {
+      display: inline-block;
+      flex: 0 0 auto;
+      padding: 4px 10px;
+      border-radius: 999px;
+      background: #eff6ff;
+      color: #365a7c;
+      font-size: 13px;
+      font-weight: 600;
+      line-height: 1;
+      white-space: nowrap;
+      border: 1px solid #dbeafe;
+    }
+
+    .recruit-desc {
+      margin: .35rem 0 .95rem 0;
+      color: #374151;
+      font-size: 1rem;
+      line-height: 1.8;
+    }
+
+    /* Meta 標籤改成和 news category 一樣偏柔和 */
+    .recruit-meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: .6rem .75rem;
+      margin: 0 0 1rem 0;
+      padding: 0;
+      list-style: none;
+    }
+
+    .recruit-meta li {
+      display: inline-flex;
+      align-items: center;
+      padding: 4px 10px;
+      border-radius: 999px;
+      background: #f3f4f6;
+      color: #4b5563;
+      font-size: 13px;
+      font-weight: 600;
+      line-height: 1.4;
+      border: 1px solid #e5e7eb;
+      white-space: nowrap;
+    }
+
+    .recruit-actions {
+      display: flex;
+      gap: .75rem;
+      flex-wrap: wrap;
+      margin-top: .15rem;
+    }
+
+    /* 按鈕：藍色降飽和，不要太亮 */
+    .btn-primary,
+    .btn-ghost {
+      display: inline-block;
+      padding: .58rem 1rem;
+      border-radius: 10px;
+      font-weight: 700;
+      font-size: .95rem;
+      text-decoration: none;
+      transition: all .25s ease;
+    }
+
+    .btn-primary {
+      background-color: #385a7c;
+      color: #fff !important;
+      border: 1px solid #385a7c;
+    }
+
+    .btn-primary:hover {
+      background-color: #2f4d6b;
+      border-color: #2f4d6b;
+    }
+
+    .btn-ghost {
+      background: transparent;
+      color: #385a7c !important;
+      border: 1px solid #cbd5e1;
+    }
+
+    .btn-ghost:hover {
+      background: #f8fafc;
+      border-color: #94a3b8;
+    }
+
+    @media (max-width: 900px) {
+      .recruit-card {
+        padding: 1.1rem 1.1rem;
+      }
+    }
+
+    @media (max-width: 736px) {
+      .wrapper .container {
+        padding-left: .9rem;
+        padding-right: .9rem;
+      }
+
+      .recruit-card {
+        padding: 1rem;
+      }
+
+      .recruit-card-header {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      .recruit-title {
+        font-size: 1rem;
+      }
+
+      .subtitle {
+        font-size: .95rem;
+      }
+    }
+  </style>
 </head>
 
 <body class="homepage is-preload">
@@ -185,7 +200,6 @@
 
     <!-- Header -->
     <div id="header-wrapper">
-      <!-- Hero -->
       <section id="hero" class="container">
         <header>
           <h2>BAISP Lab</h2>
@@ -195,7 +209,6 @@
       </section>
 
       <div id="header" class="container">
-        <!-- Nav -->
         <nav id="nav">
           <ul>
             <li><a href="index.html">Home</a></li>
@@ -215,36 +228,36 @@
       <div class="container">
         <header class="major">
           <h2>受試者招募 (Participant Recruitment)</h2>
-          <div class="subtitle">我們誠摯邀請您參與本實驗室的研究計畫</div>
         </header>
+        <div class="subtitle">我們誠摯邀請您參與本實驗室的研究計畫</div>
 
         <section class="recruit-list">
 
-		  <!-- 招募項目 1：taVNS + interoception -->
-		  <article class="recruit-card">
-		    <div class="recruit-card-header">
-		      <h3 class="recruit-title">taVNS 調控內感受研究：EEG/ECG 與行為任務</h3>
-		      <span class="recruit-badge">招募中</span>
-		    </div>
-		
-		    <p class="recruit-desc">
-		      研究 taVNS 對內感受（interoception）之影響，包含腦波與心電量測、內感受任務。
-		    </p>
-		
-		    <ul class="recruit-meta">
-		      <li>年齡：≧18歲之成人</li>
-		      <li>地點：成大智慧生醫與訊號處理實驗室</li>
-		      <li>時長：約 1.5–2 小時</li>
-		      <li>交通補助300元</li>
-		    </ul>
-		
-		    <div class="recruit-actions">
-		      <a class="btn-primary" href="experiment_1.html">查看詳情</a>
-		      <a class="btn-ghost" href="https://forms.gle/jMc9V5gM4K2FASme9">立即報名</a>
-		    </div>
-		  </article>
-		</section>
+          <!-- 招募項目 1 -->
+          <article class="recruit-card">
+            <div class="recruit-card-header">
+              <h3 class="recruit-title">taVNS 調控內感受研究：EEG/ECG 與行為任務</h3>
+              <span class="recruit-badge">招募中</span>
+            </div>
 
+            <p class="recruit-desc">
+              研究 taVNS 對內感受（interoception）之影響，包含腦波與心電量測、內感受任務。
+            </p>
+
+            <ul class="recruit-meta">
+              <li>年齡：≧18歲之成人</li>
+              <li>地點：成大智慧生醫與訊號處理實驗室</li>
+              <li>時長：約 1.5–2 小時</li>
+              <li>交通補助：300元</li>
+            </ul>
+
+            <div class="recruit-actions">
+              <a class="btn-primary" href="experiment_1.html">查看詳情</a>
+              <a class="btn-ghost" href="https://forms.gle/jMc9V5gM4K2FASme9" target="_blank">立即報名</a>
+            </div>
+          </article>
+
+        </section>
       </div>
     </div>
 
@@ -282,6 +295,7 @@
           </section>
         </div>
       </div>
+
       <div id="copyright" class="container">
         <ul class="menu">
           <li>&copy; BAISP Lab. All rights reserved.</li>
