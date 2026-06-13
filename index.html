@@ -3,7 +3,7 @@
 <!--
   BAISP Lab Website
 -->
-<html>
+<html lang="zh-Hant">
 <head>
   <title>BAISP Lab</title>
 
@@ -18,7 +18,7 @@
 
   <style>
     /* =========================================================
-       共用標題設定
+       共用設定
     ========================================================= */
 
     .wrapper .major h2 {
@@ -29,14 +29,16 @@
 
     /* =========================================================
        Laboratory Introduction
+       簡潔學術風格
     ========================================================= */
 
     .intro-section {
-      position: relative;
+      padding-top: 4rem;
+      padding-bottom: 4rem;
     }
 
     .intro-section .major {
-      margin-bottom: 1.5rem;
+      margin-bottom: 2rem;
     }
 
     .intro-section .major h2 {
@@ -48,96 +50,123 @@
     }
 
     .intro-section .subtitle {
-      margin-bottom: 0;
-      color: #64748b;
-      font-size: 1rem;
-      letter-spacing: 0.04em;
+      margin: 0;
+      color: #7a8795;
+      font-size: 0.9rem;
+      font-weight: 600;
+      letter-spacing: 0.12em;
       text-align: center;
     }
 
-    /* 簡介外層卡片 */
-    .intro-card {
+    /* 簡介主要外框 */
+    .lab-intro {
       position: relative;
+
       max-width: 1080px;
       margin: 0 auto;
-      padding: 2rem;
-      overflow: hidden;
+      padding: 2.5rem 2.75rem;
 
-      background:
-        linear-gradient(
-          135deg,
-          rgba(239, 246, 255, 0.88),
-          rgba(255, 255, 255, 0.98)
-        );
+      background: #ffffff;
 
-      border: 1px solid #dbe5f0;
-      border-radius: 18px;
+      border: 1px solid #e2e8f0;
+      border-radius: 12px;
 
       box-shadow:
-        0 10px 30px rgba(15, 23, 42, 0.07);
+        0 8px 28px rgba(15, 23, 42, 0.06);
     }
 
-    /* 卡片上方裝飾線 */
-    .intro-card::before {
+    /* 左側藍色裝飾線 */
+    .lab-intro::before {
       content: "";
+
       position: absolute;
-      top: 0;
+      top: 2.5rem;
+      bottom: 2.5rem;
       left: 0;
 
-      width: 100%;
-      height: 5px;
+      width: 4px;
 
-      background:
-        linear-gradient(
-          90deg,
-          #385a7c,
-          #6b8eae,
-          #a9bfd3
-        );
+      background: #385a7c;
+
+      border-radius: 0 4px 4px 0;
     }
 
-    /* 中英文雙欄 */
-    .intro-grid {
+    /* 上半部：左側研究定位＋右側中文介紹 */
+    .lab-intro-main {
       display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 2rem;
+      grid-template-columns: 240px minmax(0, 1fr);
+      gap: 3rem;
+      align-items: start;
     }
 
-    /* 單一語言區塊 */
-    .intro-panel {
-      position: relative;
-      padding: 1.4rem 1.5rem;
-
-      background: rgba(255, 255, 255, 0.84);
-
-      border:
-        1px solid rgba(203, 213, 225, 0.8);
-
-      border-radius: 14px;
+    /* 左側研究定位 */
+    .lab-intro-summary {
+      padding-right: 1rem;
     }
 
-    /* 中文、英文標示 */
-    .intro-language {
-      display: inline-flex;
-      align-items: center;
-
-      margin-bottom: 1rem;
-      padding: 0.35rem 0.8rem;
+    .lab-intro-eyebrow {
+      margin: 0 0 0.65rem;
 
       color: #385a7c;
-      background: #edf4fa;
 
-      border: 1px solid #d7e4ef;
-      border-radius: 999px;
-
-      font-size: 0.85rem;
+      font-size: 0.78rem;
       font-weight: 700;
-      letter-spacing: 0.05em;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
     }
 
-    /* 簡介文字 */
-    .intro-body {
-      color: #334155;
+    .lab-intro-heading {
+      margin: 0 0 1.25rem;
+
+      color: #172033;
+
+      font-size: 1.55rem;
+      font-weight: 700;
+      line-height: 1.45;
+    }
+
+    /* 研究方向列表 */
+    .lab-keywords {
+      display: flex;
+      flex-direction: column;
+      gap: 0.55rem;
+
+      margin: 0;
+      padding: 0;
+
+      list-style: none;
+    }
+
+    .lab-keywords li {
+      position: relative;
+
+      padding-left: 1rem;
+
+      color: #526170;
+
+      font-size: 0.92rem;
+      font-weight: 600;
+      line-height: 1.5;
+    }
+
+    .lab-keywords li::before {
+      content: "";
+
+      position: absolute;
+      top: 0.62em;
+      left: 0;
+
+      width: 5px;
+      height: 5px;
+
+      background: #6f8da8;
+      border-radius: 50%;
+    }
+
+    /* 中文介紹 */
+    .lab-intro-content {
+      color: #3f4b59;
+
       font-size: 1.05rem;
       line-height: 1.95;
 
@@ -145,25 +174,43 @@
       text-justify: inter-ideograph;
     }
 
-    .intro-body p {
+    .lab-intro-content p {
       margin: 0;
     }
 
-    .intro-body p + p {
-      margin-top: 1.15rem;
+    .lab-intro-content p + p {
+      margin-top: 1.1rem;
     }
 
-    .intro-body.en {
-      color: #475569;
-      font-size: 1rem;
-      line-height: 1.85;
-      hyphens: auto;
+    /* 英文介紹 */
+    .lab-intro-english {
+      margin-top: 2rem;
+      padding-top: 1.7rem;
+
+      border-top: 1px solid #e5eaf0;
     }
 
-    /* 關鍵字強調 */
-    .intro-highlight {
-      color: #294d6d;
+    .lab-intro-english-title {
+      margin: 0 0 0.65rem;
+
+      color: #66788a;
+
+      font-size: 0.8rem;
       font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+    }
+
+    .lab-intro-english p {
+      margin: 0;
+
+      color: #697786;
+
+      font-size: 0.96rem;
+      line-height: 1.85;
+
+      text-align: justify;
+      hyphens: auto;
     }
 
 
@@ -172,7 +219,12 @@
     ========================================================= */
 
     .news-section {
-      padding-bottom: 2rem;
+      padding-top: 3rem;
+      padding-bottom: 1.5rem;
+    }
+
+    .news-section .major {
+      margin-bottom: 1.4rem;
     }
 
     .news-table {
@@ -181,11 +233,12 @@
       border-collapse: separate;
       border-spacing: 0;
 
+      color: #111827;
+      background: #ffffff;
+
       font-size: 16px;
       line-height: 1.65;
-      color: #111827;
 
-      background: #ffffff;
       border-radius: 12px;
       overflow: hidden;
 
@@ -196,19 +249,20 @@
     .news-table th,
     .news-table td {
       padding: 14px 16px;
+
       text-align: left;
       vertical-align: top;
     }
 
     .news-table th {
-      background: #f3f4f6;
       color: #0f172a;
+      background: #f3f4f6;
 
       font-weight: 700;
       letter-spacing: 0.2px;
     }
 
-    .news-table tr:nth-child(even) td {
+    .news-table tbody tr:nth-child(even) td {
       background: #fcfcfd;
     }
 
@@ -216,7 +270,7 @@
       background: #f8fafc;
     }
 
-    /* 欄位寬度 */
+    /* 新聞欄位寬度 */
     .news-table th:nth-child(1),
     .news-table td:nth-child(1) {
       width: 140px;
@@ -233,42 +287,39 @@
       width: auto;
     }
 
-    /* 新聞分類標籤 */
+    /* 公告類型標籤 */
     .news-category {
       display: inline-block;
 
-      padding: 3px 8px;
+      padding: 4px 9px;
 
       border-radius: 999px;
 
-      background: #eef2ff;
-      color: #3730a3;
-
       font-size: 13px;
       font-weight: 600;
-      line-height: 1;
+      line-height: 1.2;
 
       white-space: nowrap;
     }
 
     .tag--normal {
-      background: #ecfeff;
       color: #155e75;
+      background: #ecfeff;
     }
 
     .tag--research {
-      background: #fef3c7;
       color: #92400e;
+      background: #fef3c7;
     }
 
     .tag--scholarly {
-      background: #ede9fe;
       color: #5b21b6;
+      background: #ede9fe;
     }
 
     .tag--degree {
-      background: #e0f2fe;
       color: #1e3a8a;
+      background: #e0f2fe;
     }
 
     /* 新聞內容 */
@@ -277,7 +328,7 @@
     }
 
     .news-title {
-      margin: 0 0 0.15rem 0;
+      margin: 0 0 0.15rem;
 
       color: #0b1220;
 
@@ -286,9 +337,10 @@
     }
 
     .news-subtitle {
-      margin: 0.15rem 0 0 0;
+      margin: 0.15rem 0 0;
 
       color: #334155;
+
       font-weight: 600;
     }
 
@@ -298,7 +350,7 @@
       font-weight: 600;
     }
 
-    /* 整則新聞可點擊 */
+    /* 整則新聞連結 */
     .news-link {
       display: block;
 
@@ -317,7 +369,7 @@
       background: #f1f5f9;
     }
 
-    /* 更多按鈕 */
+    /* 更多連結 */
     .news-more {
       margin-top: 0.75rem;
       text-align: right;
@@ -329,8 +381,9 @@
       padding: 6px 10px;
 
       color: #374151;
-      text-decoration: none;
+
       font-weight: 600;
+      text-decoration: none;
 
       border-radius: 8px;
     }
@@ -344,9 +397,9 @@
        Laboratory Photo Gallery
     ========================================================= */
 
-    /* 照片區塊與新聞區塊距離縮短 */
     .photo-section {
-      padding-top: 2rem;
+      padding-top: 1.5rem;
+      padding-bottom: 4rem;
     }
 
     .photo-section .major {
@@ -357,7 +410,7 @@
       position: relative;
 
       width: 100%;
-      margin-top: 0.5rem;
+      margin-top: 0.4rem;
     }
 
     .photo-gallery {
@@ -369,14 +422,14 @@
 
       padding: 0.5rem 0.25rem 1.25rem;
 
-      scroll-snap-type: x mandatory;
       scroll-behavior: smooth;
+      scroll-snap-type: x mandatory;
 
       scrollbar-width: thin;
       scrollbar-color: #94a3b8 #e5e7eb;
     }
 
-    /* Chrome / Edge 捲動條 */
+    /* Chrome 與 Edge 捲動條 */
     .photo-gallery::-webkit-scrollbar {
       height: 9px;
     }
@@ -433,12 +486,11 @@
       text-decoration: none;
     }
 
-    /* 放大圖片尺寸 */
     .photo-card img {
       display: block;
 
       width: 100%;
-      height: 330px;
+      height: 350px;
 
       object-fit: cover;
       object-position: center;
@@ -482,13 +534,22 @@
     ========================================================= */
 
     @media (max-width: 900px) {
-      .intro-card {
-        padding: 1.5rem;
+      .lab-intro {
+        padding: 2rem;
       }
 
-      .intro-grid {
-        grid-template-columns: 1fr;
-        gap: 1.25rem;
+      .lab-intro::before {
+        top: 2rem;
+        bottom: 2rem;
+      }
+
+      .lab-intro-main {
+        grid-template-columns: 190px minmax(0, 1fr);
+        gap: 2rem;
+      }
+
+      .lab-intro-heading {
+        font-size: 1.4rem;
       }
 
       .news-table {
@@ -509,40 +570,78 @@
       }
 
       .photo-card img {
-        height: 270px;
+        height: 290px;
       }
     }
 
     @media (max-width: 640px) {
+      .intro-section {
+        padding-top: 2.75rem;
+        padding-bottom: 2.75rem;
+      }
+
       .intro-section .major h2 {
-        font-size: 1.6rem;
+        font-size: 1.65rem;
       }
 
-      .intro-card {
-        padding: 1rem;
-        border-radius: 14px;
+      .lab-intro {
+        padding: 1.5rem 1.3rem;
+
+        border-radius: 8px;
       }
 
-      .intro-panel {
-        padding: 1.15rem;
+      .lab-intro::before {
+        top: 1.5rem;
+        bottom: 1.5rem;
+
+        width: 3px;
       }
 
-      .intro-body {
+      .lab-intro-main {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+      }
+
+      .lab-intro-summary {
+        padding-right: 0;
+      }
+
+      .lab-intro-heading {
+        margin-bottom: 1rem;
+
+        font-size: 1.35rem;
+      }
+
+      .lab-keywords {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 0.45rem 1rem;
+      }
+
+      .lab-intro-content {
         font-size: 1rem;
         line-height: 1.8;
       }
 
-      .intro-body.en {
-        font-size: 0.95rem;
+      .lab-intro-english {
+        margin-top: 1.5rem;
+        padding-top: 1.35rem;
+      }
+
+      .lab-intro-english p {
+        font-size: 0.92rem;
         line-height: 1.75;
+        text-align: left;
       }
 
       .news-section {
-        padding-bottom: 1.25rem;
+        padding-top: 2rem;
+        padding-bottom: 1rem;
       }
 
       .news-table {
         display: block;
+
         overflow-x: auto;
       }
 
@@ -562,7 +661,7 @@
       }
 
       .photo-section {
-        padding-top: 1.25rem;
+        padding-top: 1rem;
       }
 
       .photo-gallery {
@@ -574,7 +673,7 @@
       }
 
       .photo-card img {
-        height: 260px;
+        height: 270px;
       }
 
       .photo-caption {
@@ -596,7 +695,6 @@
 
     <div id="header-wrapper">
 
-      <!-- Hero -->
       <section id="hero" class="container">
         <header>
           <h2>BAISP Lab</h2>
@@ -611,7 +709,6 @@
         </p>
       </section>
 
-      <!-- Navigation -->
       <div id="header" class="container">
         <nav id="nav">
           <ul>
@@ -659,103 +756,86 @@
         <header class="major">
           <h2>實驗室簡介</h2>
 
-          <div class="subtitle">
-            Laboratory Introduction
-          </div>
+          <p class="subtitle">
+            LABORATORY INTRODUCTION
+          </p>
         </header>
 
-        <div class="intro-card">
-          <div class="intro-grid">
+        <section class="lab-intro">
 
-            <!-- 中文簡介 -->
-            <section class="intro-panel">
+          <div class="lab-intro-main">
 
-              <div class="intro-language">
-                中文介紹
-              </div>
+            <!-- 左側：研究定位 -->
+            <aside class="lab-intro-summary">
 
-              <div class="intro-body zh">
+              <p class="lab-intro-eyebrow">
+                Our Focus
+              </p>
 
-                <p>
-                  我們的實驗室專注於
-                  <span class="intro-highlight">
-                    智慧生醫技術
-                  </span>
-                  的開發，特別著重於神經訊號與醫學影像的分析工具。
-                  我們結合腦波（EEG）、功能性磁振造影（fMRI）、
-                  心電圖（ECG）等生醫訊號與人工智慧技術，
-                  目標是研發可應用於臨床疾病治療、監測與預防，
-                  並提升日常生活品質的創新解決方案。
-                </p>
+              <h3 class="lab-intro-heading">
+                AI for Biomedical Signals and Brain Science
+              </h3>
 
-                <p>
-                  目前研究項目涵蓋
-                  <span class="intro-highlight">
-                    精準神經調控
-                  </span>、
-                  <span class="intro-highlight">
-                    駕駛安全
-                  </span>
-                  與
-                  <span class="intro-highlight">
-                    心血管手術後腦功能評估
-                  </span>
-                  等領域。除了運用機器學習與深度學習進行分類及預測，
-                  我們也重視模型可解釋性，以建立神經生理標記，
-                  深化對腦科學的理解，並推動智慧醫療發展。
-                </p>
+              <ul class="lab-keywords">
+                <li>生醫訊號分析</li>
+                <li>醫學影像分析</li>
+                <li>人工智慧</li>
+                <li>神經調控</li>
+                <li>智慧醫療</li>
+              </ul>
 
-              </div>
-            </section>
+            </aside>
 
 
-            <!-- 英文簡介 -->
-            <section class="intro-panel">
+            <!-- 右側：中文介紹 -->
+            <div class="lab-intro-content">
 
-              <div class="intro-language">
-                English Introduction
-              </div>
+              <p>
+                我們的實驗室專注於開發智慧生醫技術，
+                特別著重於神經訊號與醫學影像的分析。
+                研究結合腦波（EEG）、功能性磁振造影（fMRI）、
+                心電圖（ECG）等生醫訊號與人工智慧技術，
+                目標是發展可應用於臨床疾病治療、監測與預防，
+                以及提升日常生活品質的創新解決方案。
+              </p>
 
-              <div class="intro-body en">
+              <p>
+                目前研究方向涵蓋精準神經調控與生理機制、
+                駕駛安全系統，以及心血管手術後腦功能評估。
+                除了運用機器學習與深度學習進行分類與預測，
+                我們亦重視模型可解釋性，
+                期望建立具臨床價值的神經生理標記，
+                深化對腦科學的理解，並推動智慧醫療發展。
+              </p>
 
-                <p>
-                  Our laboratory focuses on the development of
-                  <span class="intro-highlight">
-                    intelligent biomedical technologies
-                  </span>,
-                  particularly tools for analyzing neurophysiological
-                  signals and medical imaging. We integrate
-                  electroencephalography (EEG), functional magnetic
-                  resonance imaging (fMRI), electrocardiography (ECG),
-                  and artificial intelligence to develop innovative
-                  solutions for disease treatment, monitoring,
-                  prevention, and improved quality of life.
-                </p>
-
-                <p>
-                  Our research covers
-                  <span class="intro-highlight">
-                    precision neuromodulation
-                  </span>,
-                  <span class="intro-highlight">
-                    driving safety
-                  </span>,
-                  and
-                  <span class="intro-highlight">
-                    postoperative brain-function assessment
-                  </span>.
-                  In addition to machine-learning and deep-learning
-                  methods for classification and prediction, we
-                  emphasize model interpretability to identify
-                  neurophysiological markers, advance brain-science
-                  research, and promote intelligent healthcare.
-                </p>
-
-              </div>
-            </section>
+            </div>
 
           </div>
-        </div>
+
+
+          <!-- 下方：英文介紹 -->
+          <div class="lab-intro-english">
+
+            <h3 class="lab-intro-english-title">
+              About the Laboratory
+            </h3>
+
+            <p>
+              Our laboratory develops intelligent biomedical technologies
+              for neurophysiological signal and medical image analysis.
+              By integrating electroencephalography, functional magnetic
+              resonance imaging, electrocardiography, and artificial
+              intelligence, we aim to develop innovative approaches for
+              disease treatment, monitoring, prevention, and improved
+              quality of life. Our research includes precision
+              neuromodulation, driving safety, postoperative brain-function
+              assessment, and interpretable machine-learning methods for
+              identifying clinically meaningful neurophysiological markers.
+            </p>
+
+          </div>
+
+        </section>
 
       </div>
     </div>
@@ -782,7 +862,9 @@
                 公告類型 (Announcement Type)
               </th>
 
-              <th>內容 (Content)</th>
+              <th>
+                內容 (Content)
+              </th>
             </tr>
           </thead>
 
@@ -846,8 +928,8 @@
 
               <td>
                 <a
-                  class="news-link"
                   href="news.html"
+                  class="news-link"
                 >
                   <div class="news-item">
 
@@ -855,8 +937,8 @@
                       恭喜崇瀚、文賓榮獲碩士學位！
 
                       <span class="en">
-                        (Congratulations to Chong-Han and Wun-Bin on
-                        receiving their Master's degrees!)
+                        (Congratulations to Chong-Han and Wun-Bin
+                        on receiving their Master's degrees!)
                       </span>
                     </div>
 
@@ -878,8 +960,8 @@
 
               <td>
                 <a
-                  class="news-link"
                   href="news.html"
+                  class="news-link"
                 >
                   <div class="news-item">
 
@@ -901,8 +983,7 @@
 
                       <span class="en">
                         (#1153 Integrating Harmonization with 3D-CNN
-                        Improves Multi-Site MRI Classification,
-                        Bo-Jyun)
+                        Improves Multi-Site MRI Classification, Bo-Jyun)
                       </span>
                     </div>
 
@@ -912,8 +993,7 @@
 
                       <span class="en">
                         (#1160 A Real-Time Emotion Recognition Platform
-                        with EEG and Driving Simulation, Ya-Hsing and
-                        Wu-Shi)
+                        with EEG and Driving Simulation, Ya-Hsing and Wu-Shi)
                       </span>
                     </div>
 
@@ -935,8 +1015,8 @@
 
               <td>
                 <a
-                  class="news-link"
                   href="news.html"
+                  class="news-link"
                 >
                   <div class="news-item">
 
@@ -944,8 +1024,8 @@
                       恭喜柏儒、翊峰榮獲碩士學位！
 
                       <span class="en">
-                        (Congratulations to Po-Ju and Yi-Feng on
-                        receiving their Master's degrees!)
+                        (Congratulations to Po-Ju and Yi-Feng
+                        on receiving their Master's degrees!)
                       </span>
                     </div>
 
@@ -967,8 +1047,8 @@
 
               <td>
                 <a
-                  class="news-link"
                   href="news.html"
+                  class="news-link"
                 >
                   <div class="news-item">
 
@@ -1050,7 +1130,7 @@
             </article>
 
 
-            <!-- 112導生聚餐 -->
+            <!-- 112 導生聚餐 -->
             <article class="photo-card">
 
               <a
@@ -1073,7 +1153,7 @@
             </article>
 
 
-            <!-- 113導生聚餐 -->
+            <!-- 113 導生聚餐 -->
             <article class="photo-card">
 
               <a
@@ -1096,7 +1176,7 @@
             </article>
 
 
-            <!-- 114春酒 -->
+            <!-- 114 春酒 -->
             <article class="photo-card">
 
               <a
@@ -1188,7 +1268,7 @@
             </article>
 
 
-            <!-- 115實驗室尾牙 -->
+            <!-- 115 實驗室尾牙 -->
             <article class="photo-card">
 
               <a
@@ -1217,6 +1297,7 @@
           </p>
 
         </div>
+
       </div>
     </div>
 
@@ -1299,9 +1380,11 @@
               </ul>
 
             </div>
+
           </section>
 
         </div>
+
       </div>
 
 
@@ -1324,6 +1407,7 @@
         </ul>
 
       </div>
+
     </div>
 
   </div>
@@ -1334,15 +1418,10 @@
   ========================================================= -->
 
   <script src="assets/js/jquery.min.js"></script>
-
   <script src="assets/js/jquery.dropotron.min.js"></script>
-
   <script src="assets/js/browser.min.js"></script>
-
   <script src="assets/js/breakpoints.min.js"></script>
-
   <script src="assets/js/util.js"></script>
-
   <script src="assets/js/main.js"></script>
 
 </body>
