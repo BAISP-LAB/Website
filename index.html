@@ -1,3 +1,4 @@
+```html
 <!DOCTYPE HTML>
 <!--
   BAISP Lab Website
@@ -6,183 +7,395 @@
 <head>
   <title>BAISP Lab</title>
   <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1, user-scalable=no"
+  />
   <link rel="stylesheet" href="assets/css/main.css" />
 
-  <!-- ===== Intro section styles (原本就有) ===== -->
   <style>
-    /* 標題與副標題 */
-    .intro-section .major h2{
-      text-align:center;
-      margin-bottom:.35rem;
-    }
-    .intro-section .subtitle{
-      text-align:center;
-      color:#666;
-      font-size:.95rem;
-      margin-bottom:1.75rem;
+    /* =========================================================
+       Introduction
+    ========================================================= */
+
+    .intro-section .major h2 {
+      text-align: center;
+      margin-bottom: 0.35rem;
     }
 
-    /* 內容版型：桌機雙欄、手機單欄 */
-    .intro-grid{
-      display:grid;
+    .intro-section .subtitle {
+      text-align: center;
+      color: #666;
+      font-size: 0.95rem;
+      margin-bottom: 1.75rem;
+    }
+
+    .intro-grid {
+      display: grid;
       grid-template-columns: 1fr;
       gap: 1.25rem 2rem;
       max-width: 980px;
       margin: 0 auto;
     }
-    @media (min-width: 900px){
-      .intro-grid{ grid-template-columns: 1fr 1fr; }
+
+    @media (min-width: 900px) {
+      .intro-grid {
+        grid-template-columns: 1fr 1fr;
+      }
     }
 
-    /* 文字排版 */
-    .intro-body{
-      font-size:1.15rem;
-      line-height:1.9;
-      color:#333;
+    .intro-body {
+      font-size: 1.15rem;
+      line-height: 1.9;
+      color: #333;
       text-align: justify;
       text-justify: inter-ideograph;
     }
-    .intro-body p{ margin: 0 0 1rem 0; }
-    .intro-body.en{ hyphens: auto; }
 
-    /* 柔和背景卡片感（可移除） */
-    .intro-card{
-      background: rgba(0,0,0,.02);
-      border: 1px solid rgba(0,0,0,.06);
+    .intro-body p {
+      margin: 0 0 1rem 0;
+    }
+
+    .intro-body.en {
+      hyphens: auto;
+    }
+
+    .intro-card {
+      background: rgba(0, 0, 0, 0.02);
+      border: 1px solid rgba(0, 0, 0, 0.06);
       border-radius: 14px;
       padding: 1.25rem;
     }
-  </style>
 
-  <!-- ===== News: 與公告頁一致的排版（新增） ===== -->
-  <style>
-    .wrapper .major h2{ margin-bottom:.25rem; }
+    /* =========================================================
+       News
+    ========================================================= */
 
-    .news-table{
-      width:100%;
-      border-collapse:separate;
-      border-spacing:0;
-      font-size:16px;
-      line-height:1.65;
-      color:#111827;
-      background:#fff;
-      border-radius:12px;
-      overflow:hidden;
-      box-shadow:0 4px 16px rgba(0,0,0,.06);
+    .wrapper .major h2 {
+      margin-bottom: 0.25rem;
     }
+
+    .news-table {
+      width: 100%;
+      border-collapse: separate;
+      border-spacing: 0;
+      font-size: 16px;
+      line-height: 1.65;
+      color: #111827;
+      background: #fff;
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 4px 16px rgba(0, 0, 0, 0.06);
+    }
+
     .news-table th,
-    .news-table td{
-      padding:14px 16px;
-      text-align:left;
-      vertical-align:top;
+    .news-table td {
+      padding: 14px 16px;
+      text-align: left;
+      vertical-align: top;
     }
-    .news-table th{
-      background:#f3f4f6;
-      font-weight:700;
-      color:#0f172a;
-      letter-spacing:.2px;
-    }
-    .news-table tr:nth-child(even) td{ background:#fcfcfd; }
-    .news-table tr:hover td{ background:#f8fafc; }
 
-    /* 欄寬：日期固定、類型適中、內容彈性 */
-    .news-table th:nth-child(1), .news-table td:nth-child(1){ width:140px; white-space:nowrap; }
-    .news-table th:nth-child(2), .news-table td:nth-child(2){ width:230px; }
-    .news-table th:nth-child(3), .news-table td:nth-child(3){ width:auto; }
+    .news-table th {
+      background: #f3f4f6;
+      font-weight: 700;
+      color: #0f172a;
+      letter-spacing: 0.2px;
+    }
 
-    /* 類型標籤（與公告頁一致） */
-    .news-category{
-      display:inline-block;
-      padding:3px 8px;
-      border-radius:999px;
-      background:#eef2ff;
-      color:#3730a3;
-      font-size:13px;
-      font-weight:600;
-      line-height:1;
-      white-space:nowrap;
+    .news-table tr:nth-child(even) td {
+      background: #fcfcfd;
     }
-    .tag--normal{     background:#ecfeff; color:#155e75; }
-    .tag--research{   background:#fef3c7; color:#92400e; }
-    .tag--scholarly{  background:#ede9fe; color:#5b21b6; }
-    .tag--degree{     background:#e0f2fe; color:#1e3a8a; }
 
-    /* 內容欄：標題 / 副標 / 英文說明 */
-    .news-item{ display:block; }
-    .news-title{
-      font-weight:700;
-      font-size:1rem;
-      margin:0 0 .15rem 0;
-      color:#0b1220;
+    .news-table tr:hover td {
+      background: #f8fafc;
     }
-    .news-subtitle{
-      font-weight:600;
-      margin:.15rem 0 0 0;
-      color:#334155;
-    }
-    .news-en{
-      color:#6b7280;
-      font-weight:500;
-      margin:.25rem 0 0 0;
-    }
-    .news-title .en, .news-subtitle .en{ color:#6b7280; font-weight:600; }
 
-    /* 讓整則內容可點擊的 a 樣式（不突兀） */
-    .news-link{
-      display:block;
-      text-decoration:none;
-      color:inherit;
-      border-radius:8px;
-      padding:6px 8px;
-      margin:-6px -8px; /* 擴大可點擊範圍，與 padding 抵銷 */
-      transition: background .15s ease;
+    .news-table th:nth-child(1),
+    .news-table td:nth-child(1) {
+      width: 140px;
+      white-space: nowrap;
     }
-    .news-link:hover{ background:#f1f5f9; }
 
-    /* "更多" 連結 */
-    .news-more{
-      margin-top:.75rem;
-      text-align:right;
+    .news-table th:nth-child(2),
+    .news-table td:nth-child(2) {
+      width: 230px;
     }
-    .news-more a{
-      text-decoration:none;
-      font-weight:600;
-      color:#374151;
-      padding:6px 10px;
-      border-radius:8px;
-    }
-    .news-more a:hover{ background:#f3f4f6; }
 
-    /* 手機：維持水平捲動避免壓縮 */
-    @media (max-width: 900px){
-      .news-table{ font-size:15px; }
-      .news-table th:nth-child(2), .news-table td:nth-child(2){ width:200px; }
+    .news-table th:nth-child(3),
+    .news-table td:nth-child(3) {
+      width: auto;
     }
-    @media (max-width: 640px){
-      .news-table{ display:block; overflow:auto; }
-      .news-table th, .news-table td{ padding:12px; }
-      .news-table th:nth-child(1), .news-table td:nth-child(1){ width:120px; }
-      .news-table th:nth-child(2), .news-table td:nth-child(2){ width:200px; }
+
+    .news-category {
+      display: inline-block;
+      padding: 3px 8px;
+      border-radius: 999px;
+      background: #eef2ff;
+      color: #3730a3;
+      font-size: 13px;
+      font-weight: 600;
+      line-height: 1;
+      white-space: nowrap;
+    }
+
+    .tag--normal {
+      background: #ecfeff;
+      color: #155e75;
+    }
+
+    .tag--research {
+      background: #fef3c7;
+      color: #92400e;
+    }
+
+    .tag--scholarly {
+      background: #ede9fe;
+      color: #5b21b6;
+    }
+
+    .tag--degree {
+      background: #e0f2fe;
+      color: #1e3a8a;
+    }
+
+    .news-item {
+      display: block;
+    }
+
+    .news-title {
+      font-weight: 700;
+      font-size: 1rem;
+      margin: 0 0 0.15rem 0;
+      color: #0b1220;
+    }
+
+    .news-subtitle {
+      font-weight: 600;
+      margin: 0.15rem 0 0 0;
+      color: #334155;
+    }
+
+    .news-en {
+      color: #6b7280;
+      font-weight: 500;
+      margin: 0.25rem 0 0 0;
+    }
+
+    .news-title .en,
+    .news-subtitle .en {
+      color: #6b7280;
+      font-weight: 600;
+    }
+
+    .news-link {
+      display: block;
+      text-decoration: none;
+      color: inherit;
+      border-radius: 8px;
+      padding: 6px 8px;
+      margin: -6px -8px;
+      transition: background 0.15s ease;
+    }
+
+    .news-link:hover {
+      background: #f1f5f9;
+    }
+
+    .news-more {
+      margin-top: 0.75rem;
+      text-align: right;
+    }
+
+    .news-more a {
+      text-decoration: none;
+      font-weight: 600;
+      color: #374151;
+      padding: 6px 10px;
+      border-radius: 8px;
+    }
+
+    .news-more a:hover {
+      background: #f3f4f6;
+    }
+
+    @media (max-width: 900px) {
+      .news-table {
+        font-size: 15px;
+      }
+
+      .news-table th:nth-child(2),
+      .news-table td:nth-child(2) {
+        width: 200px;
+      }
+    }
+
+    @media (max-width: 640px) {
+      .news-table {
+        display: block;
+        overflow-x: auto;
+      }
+
+      .news-table th,
+      .news-table td {
+        padding: 12px;
+      }
+
+      .news-table th:nth-child(1),
+      .news-table td:nth-child(1) {
+        width: 120px;
+      }
+
+      .news-table th:nth-child(2),
+      .news-table td:nth-child(2) {
+        width: 200px;
+      }
+    }
+
+    /* =========================================================
+       Laboratory Photo Gallery
+    ========================================================= */
+
+    .photo-gallery-wrapper {
+      position: relative;
+      max-width: 100%;
+      margin-top: 1.5rem;
+    }
+
+    .photo-gallery {
+      display: flex;
+      gap: 1.25rem;
+      overflow-x: auto;
+      overflow-y: hidden;
+      padding: 0.5rem 0.2rem 1.25rem;
+      scroll-snap-type: x mandatory;
+      scroll-behavior: smooth;
+      scrollbar-width: thin;
+      scrollbar-color: #94a3b8 #e5e7eb;
+    }
+
+    .photo-gallery::-webkit-scrollbar {
+      height: 8px;
+    }
+
+    .photo-gallery::-webkit-scrollbar-track {
+      background: #e5e7eb;
+      border-radius: 999px;
+    }
+
+    .photo-gallery::-webkit-scrollbar-thumb {
+      background: #94a3b8;
+      border-radius: 999px;
+    }
+
+    .photo-gallery::-webkit-scrollbar-thumb:hover {
+      background: #64748b;
+    }
+
+    .photo-card {
+      flex: 0 0 calc((100% - 2.5rem) / 3);
+      min-width: 0;
+      background: #fff;
+      border: 1px solid #e5e7eb;
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 4px 14px rgba(0, 0, 0, 0.07);
+      scroll-snap-align: start;
+      transition:
+        transform 0.2s ease,
+        box-shadow 0.2s ease;
+    }
+
+    .photo-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
+    }
+
+    .photo-image-link {
+      display: block;
+      width: 100%;
+      text-decoration: none;
+    }
+
+    .photo-card img {
+      display: block;
+      width: 100%;
+      height: 230px;
+      object-fit: cover;
+      object-position: center;
+      transition: transform 0.3s ease;
+    }
+
+    .photo-card:hover img {
+      transform: scale(1.03);
+    }
+
+    .photo-caption {
+      margin: 0;
+      padding: 0.9rem 1rem;
+      min-height: 3.5rem;
+      color: #1f2937;
+      font-size: 1rem;
+      font-weight: 600;
+      line-height: 1.5;
+      text-align: center;
+    }
+
+    .photo-hint {
+      margin-top: 0.25rem;
+      color: #64748b;
+      font-size: 0.9rem;
+      text-align: center;
+    }
+
+    @media (max-width: 900px) {
+      .photo-card {
+        flex-basis: calc((100% - 1.25rem) / 2);
+      }
+
+      .photo-card img {
+        height: 210px;
+      }
+    }
+
+    @media (max-width: 640px) {
+      .photo-gallery {
+        gap: 0.9rem;
+      }
+
+      .photo-card {
+        flex-basis: 88%;
+      }
+
+      .photo-card img {
+        height: 210px;
+      }
+
+      .photo-caption {
+        font-size: 0.95rem;
+      }
     }
   </style>
 </head>
+
 <body class="homepage is-preload">
   <div id="page-wrapper">
 
-    <!-- Header -->
+    <!-- ======================================================
+         Header
+    ======================================================= -->
+
     <div id="header-wrapper">
-      <!-- Hero -->
+
       <section id="hero" class="container">
         <header>
           <h2>BAISP Lab</h2>
         </header>
+
         <p>Biomedical Artificial Intelligence and Signal Processing Lab</p>
         <p>智慧生醫與訊號處理實驗室</p>
       </section>
 
       <div id="header" class="container">
-        <!-- Nav -->
         <nav id="nav">
           <ul>
             <li><a href="index.html">Home</a></li>
@@ -191,231 +404,531 @@
             <li><a href="research.html">Research</a></li>
             <li><a href="recruitment.html">Recruitment</a></li>
             <li><a href="course.html">Course</a></li>
-            <li><a href="forlab.html">For lab</a></li>
+            <li><a href="forlab.html">For Lab</a></li>
           </ul>
         </nav>
       </div>
+
     </div>
 
-    <!-- ===== Introduction (new) ===== -->
+    <!-- ======================================================
+         Laboratory Introduction
+    ======================================================= -->
+
     <div class="wrapper intro-section">
       <div class="container">
+
         <header class="major">
           <h2>實驗室簡介</h2>
           <div class="subtitle">(Laboratory Introduction)</div>
         </header>
 
         <div class="intro-grid intro-card">
-          <!-- 中文 -->
+
           <div class="intro-body zh">
-            <p>我們的實驗室專注於開發智慧生醫技術，特別是針對神經訊號與醫學影像的分析工具。我們結合腦波（EEG）、功能性磁振造影（fMRI）、心電圖（ECG）等生醫訊號與人工智慧技術，目標是研發能應用於臨床疾病的治療、監測、預防，以及提升日常生活品質的創新解決方案。</p>
-            <p>目前實驗室的研究項目涵蓋多個領域，包括：開發精準的神經調控療法並探討其生理機制、提升駕駛安全的系統、以及心血管手術後腦功能評估的技術。除了應用傳統的機器學習技術與最新的深度學習方法進行分類與預測，我們也注重模型的可解釋性，藉此建立神經生理的相關標記，推動對腦科學的更深入理解，並促進智慧醫療的進步。</p>
+            <p>
+              我們的實驗室專注於開發智慧生醫技術，特別是針對神經訊號與醫學影像的分析工具。
+              我們結合腦波（EEG）、功能性磁振造影（fMRI）、心電圖（ECG）等生醫訊號與人工智慧技術，
+              目標是研發能應用於臨床疾病的治療、監測、預防，以及提升日常生活品質的創新解決方案。
+            </p>
+
+            <p>
+              目前實驗室的研究項目涵蓋多個領域，包括：開發精準的神經調控療法並探討其生理機制、
+              提升駕駛安全的系統、以及心血管手術後腦功能評估的技術。
+              除了應用傳統的機器學習技術與最新的深度學習方法進行分類與預測，
+              我們也注重模型的可解釋性，藉此建立神經生理的相關標記，
+              推動對腦科學的更深入理解，並促進智慧醫療的進步。
+            </p>
           </div>
 
-          <!-- English -->
           <div class="intro-body en">
-            <p>Our laboratory focuses on the development of intelligent biomedical technologies, particularly in building tools for analyzing neurophysiological signals and medical imaging. We integrate biomedical signals such as electroencephalography (EEG), functional magnetic resonance imaging (fMRI), and electrocardiography (ECG) with artificial intelligence technologies to create innovative solutions for the treatment, monitoring, and prevention of clinical diseases, as well as improving daily quality of life.</p>
-            <p>The current research projects in our lab span several areas, including the development of precise neuromodulation therapies and the exploration of their neurophysiological mechanisms, systems to enhance driving safety, and techniques for assessing brain function after cardiovascular surgery. In addition to applying traditional machine-learning techniques and state-of-the-art deep-learning methods for classification and prediction, we emphasize model interpretability to establish relevant neurophysiological markers, advancing brain-science understanding and promoting intelligent healthcare.</p>
+            <p>
+              Our laboratory focuses on the development of intelligent biomedical
+              technologies, particularly in building tools for analyzing
+              neurophysiological signals and medical imaging. We integrate biomedical
+              signals such as electroencephalography (EEG), functional magnetic
+              resonance imaging (fMRI), and electrocardiography (ECG) with artificial
+              intelligence technologies to create innovative solutions for the
+              treatment, monitoring, and prevention of clinical diseases, as well as
+              improving daily quality of life.
+            </p>
+
+            <p>
+              The current research projects in our lab span several areas, including
+              the development of precise neuromodulation therapies and the exploration
+              of their neurophysiological mechanisms, systems to enhance driving safety,
+              and techniques for assessing brain function after cardiovascular surgery.
+              In addition to applying traditional machine-learning techniques and
+              state-of-the-art deep-learning methods for classification and prediction,
+              we emphasize model interpretability to establish relevant
+              neurophysiological markers, advancing brain-science understanding and
+              promoting intelligent healthcare.
+            </p>
           </div>
+
         </div>
       </div>
     </div>
 
-    <!-- ===== Latest News（與 news.html 同版型 + 可點擊） ===== -->
+    <!-- ======================================================
+         Latest News
+    ======================================================= -->
+
     <div class="wrapper">
       <div class="container">
+
         <header class="major">
           <h2>最新消息 (News)</h2>
         </header>
+
         <h3><br /></h3>
 
         <table class="news-table">
-          <tr>
-            <th><b>日期 (Date)</b></th>
-            <th><b>公告類型 (Announcement type)</b></th>
-            <th><b>內容 (Content)</b></th>
-          <tr/>
-           <tr>
+
+          <thead>
+            <tr>
+              <th>日期 (Date)</th>
+              <th>公告類型 (Announcement Type)</th>
+              <th>內容 (Content)</th>
+            </tr>
+          </thead>
+
+          <tbody>
+
+            <tr>
               <td>2026-06-12</td>
-              <td><span class="news-category tag--research">研究成果 (Research Achievement)</span></td>
+
               <td>
-                <a href="PDF/2026_graduation_project_award.pdf" target="_blank" rel="noopener noreferrer"class="news-link">
-                    <div class="news-item">
-                      <div class="news-title">恭喜本實驗室專題生麒安、品堯、正璽於本校資訊系116級畢業專題展榮獲第二名！ <span class="en">(Congratulations to our undergraduate students Chi-An 、Pin-Yao and Cheng-Shi for winning Runner-up at the 116th Graduation Project Exhibition of the Department of Computer Science!)</span></div>
-                      <div class="news-subtitle">專題題目 (Project Title)：人工膝關節置換術之術後傷口狀態評估智慧照護系統 <span class="en">(An Intelligent Care System for Postoperative Wound Status Assessment Following Total Knee Replacement)</span></div>
-                    </div>
-              </a>
+                <span class="news-category tag--research">
+                  研究成果 (Research Achievement)
+                </span>
               </td>
-          </tr>
-          <tr>
-            <td>2025-10-03</td>
-            <td><span class="news-category tag--degree">學位成就 (Degree Achievement)</span></td>
-            <td>
-              <a class="news-link" href="news.html">
-                <div class="news-item">
-                  <div class="news-title">恭喜崇瀚、文賓榮獲碩士學位！ <span class="en">(Congratulations to Chong-Han and Wun-Bin on receiving their Master's degrees!)</span></div>
-                </div>
-              </a>
-            </td>
-          </tr>
-           <tr>
-            <td>2025-09-24</td>
-            <td><span class="news-category tag--research">研究成果 (Research Achievement)</span></td>
-            <td>
-              <a class="news-link" href="news.html">
-                <div class="news-item">
-                  <div class="news-title">恭喜本實驗室專題生柏鈞、雅行、梧詩投稿iFuzzy會議之論文摘要均獲得接受！ <span class="en">(Congratulations to our lab’s project students, Bo-Jyun, Ya-Hsing, and Wu-Shi, whose abstracts submitted to the iFuzzy Conference have all been accepted!)</span></div>
-                  <div class="news-subtitle">#1153 Integrating Harmonization with 3D‑CNN Improves Multi‑Site MRI Classification(柏鈞) <span class="en">(#1153 Integrating Harmonization with 3D‑CNN Improves Multi‑Site MRI Classification(Bo-Jyun))</span></div>
-                  <div class="news-subtitle">#1160 A Real-Time Emotion Recognition Platform with EEG and Driving Simulation (雅行、梧詩) <span class="en">(#1160 A Real-Time Emotion Recognition Platform with EEG and Driving Simulation (Ya-Sing、Wu-Shi))</span></div>
-                </div>
-              </a>
-            </td>
-          </tr>
-          <tr>
-            <td>2025-07-29</td>
-            <td><span class="news-category tag--degree">學位成就 (Degree Achievement)</span></td>
-            <td>
-              <a class="news-link" href="news.html">
-                <div class="news-item">
-                  <div class="news-title">恭喜柏儒、翊峰榮獲碩士學位！ <span class="en">(Congratulations to Po-Ju and Yi-Feng on receiving their Master's degrees!)</span></div>
-                </div>
-              </a>
-            </td>
-          </tr>
 
-          <tr>
-            <td>2025-07-01</td>
-            <td><span class="news-category tag--research">研究成果 (Research Achievement)</span></td>
-            <td>
-              <a class="news-link" href="news.html">
-                <div class="news-item">
-                  <div class="news-title">恭喜本實驗室專題生梧詩之國科會大專生研究計畫獲得通過！ <span class="en">(Congratulations to our undergraduate student Wu-Shi on the approval of the NSTC Undergraduate Research Project!)</span></div>
-                  <div class="news-subtitle">計畫名稱：運用腦波進行情緒辨識之駕駛模擬器開發與駕駛行為及情緒分析 <span class="en">(Development of a Driving Simulator for Emotion Recognition Using EEG and Analysis of Driving Behavior and Emotions)</span></div>
-                </div>
-              </a>
-            </td>
-          </tr>
+              <td>
+                <a
+                  href="PDF/2026_graduation_project_award.pdf"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="news-link"
+                >
+                  <div class="news-item">
 
+                    <div class="news-title">
+                      恭喜本實驗室專題生麒安、品堯、正璽於本校資訊系116級畢業專題展榮獲第二名！
+                      <span class="en">
+                        (Congratulations to our undergraduate students Chi-An,
+                        Pin-Yao and Cheng-Shi for winning Runner-up at the 116th
+                        Graduation Project Exhibition of the Department of
+                        Computer Science!)
+                      </span>
+                    </div>
+
+                    <div class="news-subtitle">
+                      專題題目 (Project Title)：人工膝關節置換術之術後傷口狀態評估智慧照護系統
+                      <span class="en">
+                        (An Intelligent Care System for Postoperative Wound Status
+                        Assessment Following Total Knee Replacement)
+                      </span>
+                    </div>
+
+                  </div>
+                </a>
+              </td>
+            </tr>
+
+            <tr>
+              <td>2025-10-03</td>
+
+              <td>
+                <span class="news-category tag--degree">
+                  學位成就 (Degree Achievement)
+                </span>
+              </td>
+
+              <td>
+                <a class="news-link" href="news.html">
+                  <div class="news-item">
+                    <div class="news-title">
+                      恭喜崇瀚、文賓榮獲碩士學位！
+                      <span class="en">
+                        (Congratulations to Chong-Han and Wun-Bin on receiving
+                        their Master's degrees!)
+                      </span>
+                    </div>
+                  </div>
+                </a>
+              </td>
+            </tr>
+
+            <tr>
+              <td>2025-09-24</td>
+
+              <td>
+                <span class="news-category tag--research">
+                  研究成果 (Research Achievement)
+                </span>
+              </td>
+
+              <td>
+                <a class="news-link" href="news.html">
+                  <div class="news-item">
+
+                    <div class="news-title">
+                      恭喜本實驗室專題生柏鈞、雅行、梧詩投稿 iFuzzy
+                      會議之論文摘要均獲得接受！
+                      <span class="en">
+                        (Congratulations to our lab's project students, Bo-Jyun,
+                        Ya-Hsing, and Wu-Shi, whose abstracts submitted to the
+                        iFuzzy Conference have all been accepted!)
+                      </span>
+                    </div>
+
+                    <div class="news-subtitle">
+                      #1153 Integrating Harmonization with 3D-CNN Improves
+                      Multi-Site MRI Classification（柏鈞）
+                      <span class="en">
+                        (#1153 Integrating Harmonization with 3D-CNN Improves
+                        Multi-Site MRI Classification, Bo-Jyun)
+                      </span>
+                    </div>
+
+                    <div class="news-subtitle">
+                      #1160 A Real-Time Emotion Recognition Platform with EEG and
+                      Driving Simulation（雅行、梧詩）
+                      <span class="en">
+                        (#1160 A Real-Time Emotion Recognition Platform with EEG
+                        and Driving Simulation, Ya-Hsing and Wu-Shi)
+                      </span>
+                    </div>
+
+                  </div>
+                </a>
+              </td>
+            </tr>
+
+            <tr>
+              <td>2025-07-29</td>
+
+              <td>
+                <span class="news-category tag--degree">
+                  學位成就 (Degree Achievement)
+                </span>
+              </td>
+
+              <td>
+                <a class="news-link" href="news.html">
+                  <div class="news-item">
+                    <div class="news-title">
+                      恭喜柏儒、翊峰榮獲碩士學位！
+                      <span class="en">
+                        (Congratulations to Po-Ju and Yi-Feng on receiving their
+                        Master's degrees!)
+                      </span>
+                    </div>
+                  </div>
+                </a>
+              </td>
+            </tr>
+
+            <tr>
+              <td>2025-07-01</td>
+
+              <td>
+                <span class="news-category tag--research">
+                  研究成果 (Research Achievement)
+                </span>
+              </td>
+
+              <td>
+                <a class="news-link" href="news.html">
+                  <div class="news-item">
+
+                    <div class="news-title">
+                      恭喜本實驗室專題生梧詩之國科會大專生研究計畫獲得通過！
+                      <span class="en">
+                        (Congratulations to our undergraduate student Wu-Shi on
+                        the approval of the NSTC Undergraduate Research Project!)
+                      </span>
+                    </div>
+
+                    <div class="news-subtitle">
+                      計畫名稱：運用腦波進行情緒辨識之駕駛模擬器開發與駕駛行為及情緒分析
+                      <span class="en">
+                        (Development of a Driving Simulator for Emotion Recognition
+                        Using EEG and Analysis of Driving Behavior and Emotions)
+                      </span>
+                    </div>
+
+                  </div>
+                </a>
+              </td>
+            </tr>
+
+          </tbody>
         </table>
 
         <div class="news-more">
           <a href="news.html">更多 (More) &raquo;</a>
         </div>
+
       </div>
     </div>
 
-    <!-- Laboratory Photo -->
+    <!-- ======================================================
+         Laboratory Photos
+    ======================================================= -->
+
     <div class="wrapper">
       <div class="container">
+
         <header class="major">
-          <h2>實驗室剪影 (Laboratory Photo)</h2>
+          <h2>實驗室剪影 (Laboratory Photos)</h2>
         </header>
-        <h3><br /></h3>
-        <div class="row">
-          <section class="col-6 col-12-narrower feature">
-            <div class="image-wrapper first">
-              <a href="#" class="image featured first"><img src="images/lab/實驗室聚餐.jpg" alt="實驗室聚餐" /></a>
-            </div>
-            <header><h3>實驗室期末聚餐</h3></header>
-            <p></p>
-          </section>
-          <section class="col-6 col-12-narrower feature">
-            <div class="image-wrapper">
-              <a href="#" class="image featured"><img src="images/lab/導生聚.jpg" alt="導生聚" /></a>
-            </div>
-            <header><h3>112導生聚餐</h3></header>
-            <p></p>
-          </section>
-          <section class="col-6 col-12-narrower feature">
-            <div class="image-wrapper">
-              <a href="#" class="image featured"><img src="images/lab/導生聚2.jpg" alt="導生聚" /></a>
-            </div>
-            <header><h3>113導生聚餐</h3></header>
-            <p></p>
-          </section>
-          <section class="col-6 col-12-narrower feature">
-            <div class="image-wrapper">
-              <a href="#" class="image featured"><img src="images/lab/114春酒.jpg" alt="114春酒" /></a>
-            </div>
-            <header><h3>114春酒</h3></header>
-            <p></p>
-          </section>
-          <section class="col-6 col-12-narrower feature">
-            <div class="image-wrapper">
-              <a href="#" class="image featured"><img src="images/lab/實驗室送舊迎新1.jpg" alt="實驗室送舊迎新1" /></a>
-            </div>
-            <header><h3>實驗室送舊迎新-1</h3></header>
-            <p></p>
-          </section>
-          <section class="col-6 col-12-narrower feature">
-            <div class="image-wrapper">
-              <a href="#" class="image featured"><img src="images/lab/實驗室送舊迎新2.jpg" alt="實驗室送舊迎新2" /></a>
-            </div>
-            <header><h3>實驗室送舊迎新-2</h3></header>
-            <p></p>
-          </section>
-          <section class="col-6 col-12-narrower feature">
-            <div class="image-wrapper">
-              <a href="#" class="image featured"><img src="images/lab/王老師來訪.jpg" alt="澳洲雪梨科大王俞凱副教授來訪" /></a>
-            </div>
-            <header><h3>澳洲雪梨科大王俞凱副教授來訪</h3></header>
-            <p></p>
-          </section>
-          <section class="col-6 col-12-narrower feature">
-            <div class="image-wrapper">
-              <a href="#" class="image featured"><img src="images/lab/115實驗室尾牙.jpg" alt="115實驗室尾牙" /></a>
-            </div>
-            <header><h3>115實驗室尾牙</h3></header>
-            <p></p>
-          </section>
+
+        <div class="photo-gallery-wrapper">
+
+          <div class="photo-gallery">
+
+            <article class="photo-card">
+              <a
+                href="images/lab/實驗室聚餐.jpg"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="photo-image-link"
+              >
+                <img
+                  src="images/lab/實驗室聚餐.jpg"
+                  alt="實驗室期末聚餐"
+                  loading="lazy"
+                />
+              </a>
+
+              <h3 class="photo-caption">
+                實驗室期末聚餐
+              </h3>
+            </article>
+
+            <article class="photo-card">
+              <a
+                href="images/lab/導生聚.jpg"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="photo-image-link"
+              >
+                <img
+                  src="images/lab/導生聚.jpg"
+                  alt="112導生聚餐"
+                  loading="lazy"
+                />
+              </a>
+
+              <h3 class="photo-caption">
+                112 導生聚餐
+              </h3>
+            </article>
+
+            <article class="photo-card">
+              <a
+                href="images/lab/導生聚2.jpg"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="photo-image-link"
+              >
+                <img
+                  src="images/lab/導生聚2.jpg"
+                  alt="113導生聚餐"
+                  loading="lazy"
+                />
+              </a>
+
+              <h3 class="photo-caption">
+                113 導生聚餐
+              </h3>
+            </article>
+
+            <article class="photo-card">
+              <a
+                href="images/lab/114春酒.jpg"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="photo-image-link"
+              >
+                <img
+                  src="images/lab/114春酒.jpg"
+                  alt="114春酒"
+                  loading="lazy"
+                />
+              </a>
+
+              <h3 class="photo-caption">
+                114 春酒
+              </h3>
+            </article>
+
+            <article class="photo-card">
+              <a
+                href="images/lab/實驗室送舊迎新1.jpg"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="photo-image-link"
+              >
+                <img
+                  src="images/lab/實驗室送舊迎新1.jpg"
+                  alt="實驗室送舊迎新合照一"
+                  loading="lazy"
+                />
+              </a>
+
+              <h3 class="photo-caption">
+                實驗室送舊迎新（一）
+              </h3>
+            </article>
+
+            <article class="photo-card">
+              <a
+                href="images/lab/實驗室送舊迎新2.jpg"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="photo-image-link"
+              >
+                <img
+                  src="images/lab/實驗室送舊迎新2.jpg"
+                  alt="實驗室送舊迎新合照二"
+                  loading="lazy"
+                />
+              </a>
+
+              <h3 class="photo-caption">
+                實驗室送舊迎新（二）
+              </h3>
+            </article>
+
+            <article class="photo-card">
+              <a
+                href="images/lab/王老師來訪.jpg"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="photo-image-link"
+              >
+                <img
+                  src="images/lab/王老師來訪.jpg"
+                  alt="澳洲雪梨科技大學王俞凱副教授來訪"
+                  loading="lazy"
+                />
+              </a>
+
+              <h3 class="photo-caption">
+                澳洲雪梨科技大學王俞凱副教授來訪
+              </h3>
+            </article>
+
+            <article class="photo-card">
+              <a
+                href="images/lab/115實驗室尾牙.jpg"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="photo-image-link"
+              >
+                <img
+                  src="images/lab/115實驗室尾牙.jpg"
+                  alt="115實驗室尾牙"
+                  loading="lazy"
+                />
+              </a>
+
+              <h3 class="photo-caption">
+                115 實驗室尾牙
+              </h3>
+            </article>
+
+          </div>
+
+          <p class="photo-hint">
+            可左右滑動查看更多照片
+          </p>
+
         </div>
       </div>
     </div>
 
-    <!-- Contact -->
+    <!-- ======================================================
+         Footer
+    ======================================================= -->
+
     <div id="footer-wrapper">
+
       <div id="footer" class="container">
+
         <header class="major">
           <h2>聯絡我們 (Contact Us)</h2>
         </header>
+
         <div class="row">
           <section class="col-12">
+
             <div class="row gtr-0">
+
               <ul class="divided icons col-4 col-12-mobile">
                 <li class="icon solid fa-envelope">
-                  <a href="mailto:baisp@mail.csie.ncku.edu.tw" class="inline">
-                    <span class="extra">Email: </span>baisp@mail.csie.ncku.edu.tw
+                  <a
+                    href="mailto:baisp@mail.csie.ncku.edu.tw"
+                    class="inline"
+                  >
+                    <span class="extra">Email: </span>
+                    baisp@mail.csie.ncku.edu.tw
                   </a>
                 </li>
               </ul>
+
               <ul class="divided icons col-4 col-12-mobile">
                 <li class="icon solid fa-phone">
-                  <a href="tel:+8866275757562561" class="inline">
-                    <span class="extra">Phone: </span>06-2757575 ext 62530 ext 2903
+                  <a
+                    href="tel:+8866275757562530"
+                    class="inline"
+                  >
+                    <span class="extra">Phone: </span>
+                    06-2757575 ext 62530 ext 2903
                   </a>
                 </li>
               </ul>
+
               <ul class="divided icons col-4 col-12-mobile">
                 <li class="icon solid fa-map-marker-alt">
-                  <a href="https://maps.app.goo.gl/37TF1A17hMm7oUsn6" target="_blank">
-                    <span class="extra">Address: </span>成功大學成功校區資訊新館65903
+                  <a
+                    href="https://maps.app.goo.gl/37TF1A17hMm7oUsn6"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    <span class="extra">Address: </span>
+                    成功大學成功校區資訊新館 65903
                   </a>
                 </li>
               </ul>
+
             </div>
           </section>
         </div>
+
       </div>
+
       <div id="copyright" class="container">
         <ul class="menu">
-          <li>&copy; BAISP Lab. All rights reserved.</li><li>Design: <a href="http://html5up.net">HTML5 UP</a></li>
+          <li>&copy; BAISP Lab. All rights reserved.</li>
+          <li>
+            Design:
+            <a href="http://html5up.net">HTML5 UP</a>
+          </li>
         </ul>
       </div>
+
     </div>
 
   </div>
 
-  <!-- Scripts -->
+  <!-- ========================================================
+       Scripts
+  ========================================================= -->
+
   <script src="assets/js/jquery.min.js"></script>
   <script src="assets/js/jquery.dropotron.min.js"></script>
   <script src="assets/js/browser.min.js"></script>
@@ -425,3 +938,4 @@
 
 </body>
 </html>
+```
